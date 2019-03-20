@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Copperspice</id>
+    <version>1.5.0</version>
+    <authors>Barbara Geller, Ansel Sermersheim</authors>
+    <owners>jan.wilmans</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://www.copperspice.com/docs/cs_overview/main-cs-license.html</licenseUrl>
+    <projectUrl>https://www.copperspice.com/</projectUrl>
+    <description>CopperSpice (x64) is of a set of libraries to develop cross platform applications in C++.</description>
+    <releaseNotes>This is a x64 only version</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Copperspice Native Platform</tags>
+  </metadata>
+  
+  <files>
+    <file src="build\**" target="build" />
+  </files>
+  
+</package>
