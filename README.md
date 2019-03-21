@@ -1,6 +1,13 @@
 # copperspice-gettingstarted
 A collection of easy to use copperspice examples
 
+# visual studio 2017 / HelloHerbs
+
+A simple but odd hybrid console / GUI application.
+
+
+# nuget packaging notes
+
 The Copperspice.1.5.0.nuspec files was created using <https://github.com/NuGetPackageExplorer/NuGetPackageExplorer>
 
 inital structure:
