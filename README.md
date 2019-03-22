@@ -5,6 +5,13 @@ A collection of easy to use copperspice examples
 
 A simple but odd hybrid console / GUI application.
 
+Note that copperspice requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8 or greater.
+
+```
+#if _MSC_VER < 1914
+#    error "CopperSpice requires Visual Studio 2017 Version 15.8 or greater"
+#endif
+```
 
 # nuget packaging notes
 
