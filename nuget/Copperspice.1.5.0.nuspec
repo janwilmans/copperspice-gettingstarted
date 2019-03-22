@@ -8,7 +8,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://www.copperspice.com/docs/cs_overview/main-cs-license.html</licenseUrl>
     <projectUrl>https://www.copperspice.com/</projectUrl>
-    <description>CopperSpice (x64) is of a set of libraries to develop cross platform applications in C++.</description>
+    <description>CopperSpice (x64) is of a set of libraries to develop cross platform applications in C++ for Visual Studio 2017 Version 15.8 or greater.</description>
     <releaseNotes>This is a x64 only version</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>Copperspice Native Platform</tags>
