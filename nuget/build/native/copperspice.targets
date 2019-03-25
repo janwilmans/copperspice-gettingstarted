@@ -2,12 +2,23 @@
 <Project ToolVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemDefinitionGroup>
     <ClCompile>
-      <PreprocessorDefinitions>;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)copperspice\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)copperspice\include;$(MSBuildThisFileDirectory)copperspice\include\QtCore;$(MSBuildThisFileDirectory)copperspice\include\QtGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ResourceCompile>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)copperspice\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)copperspice\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CsCore1.5.lib;CsGui1.5.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>    
   </ItemDefinitionGroup>
-  <ItemGroup />
+  
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsCore1.5.dll">
+      <Link>CsCore1.5.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsGui1.5.dll">
+      <Link>CsGui1.5.dll</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+ 
 </Project>
