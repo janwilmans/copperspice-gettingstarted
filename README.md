@@ -5,6 +5,8 @@ A collection of easy to use copperspice examples
 
 A simple but odd hybrid console / GUI application.
 
+[![Build Status](https://dev.azure.com/copperspice/copperspice-msvc/_apis/build/status/janwilmans.copperspice-gettingstarted?branchName=master)](https://dev.azure.com/copperspice/copperspice-msvc/_build/latest?definitionId=2&branchName=master)
+
 Note that copperspice requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8 or greater.
 
 ```
