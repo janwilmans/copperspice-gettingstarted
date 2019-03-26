@@ -38,20 +38,20 @@ int main(int argc, char *argv[])
 {
 	assert(false);
 	QApplication app(argc, argv);
-	QMainWindow main;
-	main.resize(400, 300);
-	main.setWindowTitle("Hello Copperspice");
+	QMainWindow mainWindow;
+	mainWindow.resize(400, 300);
+	mainWindow.setWindowTitle("Hello Copperspice");
 
-	auto menubar = main.menuBar();
+	auto menubar = mainWindow.menuBar();
 	auto menu = menubar->addMenu("Options");
 	auto flashAction = menu->addAction("Flash");
-	auto sb = main.statusBar();
-	main.show();
+	auto sb = mainWindow.statusBar();
+	mainWindow.show();
 	sb->showMessage("This message will disappear after 2 seconds", 2000);
 
-	//Dummy dumdum(sb);
-	//QObject::connect(flashAction, &QAction::triggered, &dumdum, &Dummy::triggered);
-	//flashAction->connect([sb] { sb->showMessage("Another Flash message that will disappear after 2 seconds", 2000); });
+	connect(*flashAction, &QAction::triggered, mainWindow, [sb] { 
+		sb->showMessage("Another Flash message that will disappear after 2 seconds", 2000);
+	});
 
 	QString qs("Hello copperspice\n");
 	std::cout << qs.toStdString();
