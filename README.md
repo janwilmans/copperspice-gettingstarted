@@ -19,7 +19,7 @@ The Copperspice.1.5.0.nuspec files was created using <https://github.com/NuGetPa
 
 inital structure:
 ```
-|   Copperspice.1.5.0.nuspec
+|   Copperspice.1.5.2.nuspec
 |   pack.bat
 |
 \---build
@@ -33,7 +33,7 @@ inital structure:
 ready to be packaged structure:
 
 ```
-|   Copperspice.1.5.0.nuspec
+|   Copperspice.1.5.2.nuspec
 |   pack.bat
 |
 \---build
