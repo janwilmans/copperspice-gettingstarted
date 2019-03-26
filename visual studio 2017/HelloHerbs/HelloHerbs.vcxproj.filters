@@ -23,11 +23,24 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HelloHerbs.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsCore1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsGui1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsMultimedia1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsNetwork1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsOpenGL1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsPhonon1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsScript1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsSql1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsSvg1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsWebKit1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsXml1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsXmlPatterns1.5.dll" />
+    <None Include="$(MSBuildThisFileDirectory)copperspice\lib\phonon_ds9.dll" />
   </ItemGroup>
 </Project>
