@@ -10,7 +10,13 @@
       <AdditionalDependencies>CsCore1.5.lib;CsGui1.5.lib;CsMultimedia1.5.lib;CsNetwork1.5.lib;CsOpenGL1.5.lib;CsPhonon1.5.lib;CsScript1.5.lib;CsSql1.5.lib;CsSvg1.5.lib;CsWebKit1.5.lib;CsXml1.5.lib;CsXmlPatterns1.5.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>    
   </ItemDefinitionGroup>
-  
+  <ItemGroup>
+    <CustomBuild Include="$(MSBuildProjectDirectory)\**\*.ui">
+      <Message>Processing UI files...</Message>
+      <Command>"$(MSBuildThisFileDirectory)copperspice\bin\uic.exe" -o $(OutDir)%(Filename)_ui.h %(FullPath)</Command>
+      <Outputs>$(OutDir)%(Identity)</Outputs>
+    </CustomBuild>ui
+  </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsCore1.5.dll">
       <Link>CsCore1.5.dll</Link>
