@@ -20,6 +20,10 @@
 // for assertions to work as usual include this file:
 #include "cs_assert.h"
 
+// any *.ui files in the project will be automatically compiled into corresponding $(OutDir)copperspice_generated\ui_*.h files.
+// since $(OutDir)copperspice_generated in included in the compiler include path, this works:
+#include "ui_mainwindow.h"
+
 #include <thread>
 #include <chrono>
 using namespace std::chrono_literals;
@@ -27,7 +31,10 @@ using namespace std::chrono_literals;
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
+
 	QMainWindow mainWindow;
+	Ui::MainWindow window;
+	window.setupUi(&mainWindow);
 
 	mainWindow.resize(400, 300);
 	mainWindow.setWindowTitle("Hello Copperspice");
@@ -42,11 +49,11 @@ int main(int argc, char *argv[])
 
 	QObject::connect(flashAction, &QAction::triggered, &mainWindow, [sb] {
 		sb->showMessage("Flash message that will disappear after 2 seconds", 2000);
-	});
+		});
 
 	QObject::connect(assertAction, &QAction::triggered, &mainWindow, [] {
 		assert("This is not a valid assertion" && false);
-	});
+		});
 
 	QString qs("Hello copperspice\n");
 	std::cout << qs.toStdString();

@@ -2,20 +2,22 @@
 <Project ToolVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)copperspice\include;$(MSBuildThisFileDirectory)copperspice\include\QtCore;
-      $(MSBuildThisFileDirectory)copperspice\include\QtGui;$(MSBuildThisFileDirectory)copperspice\include\QtMultimedia;$(MSBuildThisFileDirectory)copperspice\include\QtNetwork;$(MSBuildThisFileDirectory)copperspice\include\QtOpenGL;$(MSBuildThisFileDirectory)copperspice\include\QtScript;$(MSBuildThisFileDirectory)copperspice\include\QtSql;$(MSBuildThisFileDirectory)copperspice\include\QtSvg;$(MSBuildThisFileDirectory)copperspice\include\QtWebKit;$(MSBuildThisFileDirectory)copperspice\include\QtXml;$(MSBuildThisFileDirectory)copperspice\include\QtXmlPatterns;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+        $(OutDir)copperspice_generated\;$(MSBuildThisFileDirectory)copperspice\include;$(MSBuildThisFileDirectory)copperspice\include\QtCore;
+        $(MSBuildThisFileDirectory)copperspice\include\QtGui;$(MSBuildThisFileDirectory)copperspice\include\QtMultimedia;$(MSBuildThisFileDirectory)copperspice\include\QtNetwork;$(MSBuildThisFileDirectory)copperspice\include\QtOpenGL;$(MSBuildThisFileDirectory)copperspice\include\QtScript;$(MSBuildThisFileDirectory)copperspice\include\QtSql;$(MSBuildThisFileDirectory)copperspice\include\QtSvg;$(MSBuildThisFileDirectory)copperspice\include\QtWebKit;$(MSBuildThisFileDirectory)copperspice\include\QtXml;$(MSBuildThisFileDirectory)copperspice\include\QtXmlPatterns;%(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)copperspice\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>CsCore1.5.lib;CsGui1.5.lib;CsMultimedia1.5.lib;CsNetwork1.5.lib;CsOpenGL1.5.lib;CsPhonon1.5.lib;CsScript1.5.lib;CsSql1.5.lib;CsSvg1.5.lib;CsWebKit1.5.lib;CsXml1.5.lib;CsXmlPatterns1.5.lib;%(AdditionalDependencies)</AdditionalDependencies>
-    </Link>    
+    </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="$(MSBuildProjectDirectory)\**\*.ui">
-      <Message>Processing UI files...</Message>
-      <Command>"$(MSBuildThisFileDirectory)copperspice\bin\uic.exe" -o $(OutDir)%(Filename)_ui.h %(FullPath)</Command>
-      <Outputs>$(OutDir)%(Identity)</Outputs>
-    </CustomBuild>ui
+      <Message>Processing copperspice UI files *.ui to $(OutDir)copperspice_generated\ui_*.h</Message>
+      <Command>"$(MSBuildThisFileDirectory)copperspice\bin\uic.exe" -o "$(OutDir)copperspice_generated\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Outputs>$(OutDir)copperspice_generated\ui_%(Filename).h</Outputs>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsCore1.5.dll">
@@ -71,5 +73,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
- 
+
 </Project>
