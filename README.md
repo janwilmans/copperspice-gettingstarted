@@ -1,5 +1,14 @@
 # copperspice-gettingstarted
-A collection of easy to use copperspice examples
+A collection of easy to use copperspice examples.
+
+steps to start using:
+```
+git clone https://github.com/janwilmans/copperspice-gettingstarted.git
+```
+
+Open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
+press F5 to build and run it. Thats it... you're running a hello Herbs application.
+
 
 # Example projects
 ## visual studio 2017 / HelloHerbs
