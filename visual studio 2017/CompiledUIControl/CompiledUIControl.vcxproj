@@ -95,7 +95,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="mainwindow.ui" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
