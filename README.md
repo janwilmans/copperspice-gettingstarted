@@ -1,12 +1,13 @@
 # copperspice-gettingstarted
 A collection of easy to use copperspice examples.
 
-steps to start using:
+1) install Visual Studio 2019 Community Edition (Professional if you have a license)
+2) Use [Git](https://git-scm.com/download/win) to clone this repository, ie.
 ```
 git clone https://github.com/janwilmans/copperspice-gettingstarted.git
 ```
 
-Open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
+3) Open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
 press F5 to build and run it. Thats it... you're running a hello Herbs application.
 
 
