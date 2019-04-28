@@ -1,7 +1,8 @@
 # copperspice-gettingstarted
 A collection of easy to use copperspice examples.
 
-1) install Visual Studio 2019 Community Edition (Professional if you have a license)
+1) install **Visual Studio 2019** Community Edition will work but commerical editions are also fine.
+note: clion, visual studio code, etc will not work with the current example, I may add them at some point.
 2) Use [Git](https://git-scm.com/download/win) to clone this repository, ie.
 ```
 git clone https://github.com/janwilmans/copperspice-gettingstarted.git
