@@ -7,9 +7,10 @@ note: clion, visual studio code, etc will not work with the current example, I m
 1. install ** QT Creator ** (You'll need it only to edit .UI files), download at <https://download.qt.io> specifically [here](https://download.qt.io/snapshots/qtcreator/4.9/4.9.1/16/qt-creator-opensource-windows-x86_64-4.9.1_16.exe) at the time of this writing.
 
 1. Use [Git](https://git-scm.com/download/win) to clone this repository, ie.
-```
-git clone https://github.com/janwilmans/copperspice-gettingstarted.git
-```
+
+    ```
+    git clone https://github.com/janwilmans/copperspice-gettingstarted.git
+    ```
 
 1. Open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
 press F5 to build and run it. Thats it... you're running a hello Herbs application.
