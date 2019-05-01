@@ -4,8 +4,6 @@ A collection of easy to use copperspice examples.
 1. install **Visual Studio 2019** Community Edition will work but commerical editions are also fine.
 note: clion, visual studio code, etc will not work with the current example, I may add them at some point.
 
-1. install ** QT Creator ** (You'll need it only to edit .UI files), download at <https://download.qt.io> specifically [here](https://download.qt.io/snapshots/qtcreator/4.9/4.9.1/16/qt-creator-opensource-windows-x86_64-4.9.1_16.exe) at the time of this writing.
-
 1. Use [Git](https://git-scm.com/download/win) to clone this repository, ie.
 
     ```
@@ -23,6 +21,12 @@ A simple but odd hybrid console / GUI application.
 
 ## visual studio 2017 / CompiledUIControl
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
+
+# Editing .UI files
+
+If you want to graphically edit you .UI files, you can install **QT Creator**, it is available at <https://download.qt.io> specifically [here](https://download.qt.io/snapshots/qtcreator/4.9/4.9.1/16/qt-creator-opensource-windows-x86_64-4.9.1_16.exe) at the time of this writing.
+
+Once its installed, you can use QTCreator as your development environment, but you don't need to. Personally, I prefer to use visual studio and the only thing I use QTCreator for it to graphically edit the .UI files. Just double-click on a .ui file in explorer to open up the QT Designer view, press Ctrl-s to save your changes and build as usual in visual studio.
 
 [![Build Status](https://dev.azure.com/copperspice/copperspice-msvc/_apis/build/status/janwilmans.copperspice-gettingstarted?branchName=master)](https://dev.azure.com/copperspice/copperspice-msvc/_build/latest?definitionId=2&branchName=master)
 
