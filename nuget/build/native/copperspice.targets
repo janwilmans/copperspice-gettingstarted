@@ -20,58 +20,10 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsCore1.5.dll">
-      <Link>CsCore1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsGui1.5.dll">
-      <Link>CsGui1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsMultimedia1.5.dll">
-      <Link>CsMultimedia1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsNetwork1.5.dll">
-      <Link>CsNetwork1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsOpenGL1.5.dll">
-      <Link>CsOpenGL1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsPhonon1.5.dll">
-      <Link>CsPhonon1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsScript1.5.dll">
-      <Link>CsScript1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsSql1.5.dll">
-      <Link>CsSql1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsSvg1.5.dll">
-      <Link>CsSvg1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsWebKit1.5.dll">
-      <Link>CsWebKit1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsXml1.5.dll">
-      <Link>CsXml1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\bin\CsXmlPatterns1.5.dll">
-      <Link>CsXmlPatterns1.5.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="$(MSBuildThisFileDirectory)copperspice\lib\phonon_ds9.dll">
-      <Link>phonon_ds9.dll</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\bin\*.dll">
+      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
+      <Command>xcopy "%(FullPath)" "$(OutDir)" /D</Command>
+      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
+    </CustomBuild>
   </ItemGroup>
-
 </Project>
