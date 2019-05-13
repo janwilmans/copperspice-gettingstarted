@@ -1,14 +1,25 @@
 # copperspice-gettingstarted
 A collection of easy to use copperspice examples.
 
-steps to start using:
-```
-git clone https://github.com/janwilmans/copperspice-gettingstarted.git
-```
+# Usage
 
-Open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
-press F5 to build and run it. Thats it... you're running a hello Herbs application.
+use tese steps to start:
 
+* `git clone https://github.com/janwilmans/copperspice-gettingstarted.git` 
+* Open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
+* press F5 to build and run it. 
+
+## Note for all latest VS users
+There is currently two bugs in both the latest vs2017 and vs2019 version:
+
+* projects that have never been opening before will fail the first compilation for a project that has NuGet refereces. This is because it does not actually retreive te NuGet packages before building.
+* project that have custom compilation rules coming from a Nuget package don't show the references correctly in the solution explorer.
+
+To work around this:
+1) Open the .sln, if visual studio ask you if you want to upgrade the project, choose `yes` if you do not have the vs2017 compiler installed, otherwise, you can choose either `yes` or just cancel the dialog, it works either way.
+2) save all files (File->Save all)
+3) close visual studio, and reopen the same solution
+4) all references show ok now and you will not have to do this again.
 
 # Example projects
 ## visual studio 2017 / HelloHerbs
