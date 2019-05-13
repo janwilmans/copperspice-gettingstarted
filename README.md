@@ -15,11 +15,13 @@ There is currently two bugs in both the latest vs2017 and vs2019 version:
 * projects that have never been opening before will fail the first compilation for a project that has NuGet references. This is because it does not actually retreive te NuGet packages before building.
 * projects that have custom compilation rules coming from a Nuget package don't show the references correctly in the solution explorer.
 
+As a side effect, intellisense also does not work correctly.
+
 To work around this:
 1) Open the .sln, if visual studio ask you if you want to upgrade the project, choose `yes` if you do not have the vs2017 compiler installed, otherwise, you can choose either `yes` or just cancel the dialog, it works either way.
 2) save all files (File->Save all)
 3) close visual studio, and reopen the same solution
-4) all references show ok now and you will not have to do this again.
+4) all references show ok now, the project should build and intellisence should work and you will not have to do this again.
 
 # Example projects
 ## visual studio 2017 / HelloHerbs
