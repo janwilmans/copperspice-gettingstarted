@@ -3,7 +3,7 @@ A collection of easy to use copperspice examples.
 
 # Usage
 
-use tese steps to start:
+use these steps to start:
 
 * `git clone https://github.com/janwilmans/copperspice-gettingstarted.git` 
 * Open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
