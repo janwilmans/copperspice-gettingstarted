@@ -12,7 +12,7 @@ Use these steps to start:
 ## Note for all latest VS users
 There is currently two bugs in both the latest vs2017 and vs2019 version:
 
-* projects that have never been opening before will fail the first compilation for a project that has NuGet references. This is because it does not actually retreive te NuGet packages before building.
+* projects that have never been opened before will fail the first compilation for a project that has NuGet references. This is because it does not actually retreive the NuGet packages before building.
 * projects that have custom compilation rules coming from a Nuget package don't show the references correctly in the solution explorer.
 
 As a side effect, intellisense also does not work correctly.
