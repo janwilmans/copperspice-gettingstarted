@@ -22,7 +22,7 @@
   <ItemGroup>
     <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\bin\*.dll">
       <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D</Command>
+      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
       <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
     </CustomBuild>
   </ItemGroup>
