@@ -57,7 +57,7 @@ We now have thread aware Signal/Slot delivery, also complex data types can be us
 
 QVector, QList, QStringList, QLinkedList, QSet, QStack, QQueue, QMap, QHash, QMultiMap, QMultiHash, all these containers are now wrapping STL containers and a have an STL compatible interface, this means you can now use CopperSpice containters with STL algorithms out of the box and things like a range-based for just works. For backwards compatiblity the containers also support the Qt API.
 
-Several containers where rewritten to remove suprising behaviour, for example QMap could contain multiple values with the same key, something normally only a multi-map can do. To solved this a couple of new containers where added, namely: QFlatMap, QMultiHash and QMultiMap. Futhermore reverse iterators where added and copy on write semantics removed.
+Several containers were rewritten to remove suprising behaviour, for example QMap could contain multiple values with the same key, something normally only a multi-map can do. To solved this a couple of new containers where added, namely: QFlatMap, QMultiHash and QMultiMap. Futhermore reverse iterators where added and copy on write semantics removed.
 
 # (partial) Backwards compatibility 
 
@@ -100,22 +100,29 @@ Remove string surrogate checking since it is not required with UTF-8 / UTF-16 en
 - dropped support of obsolete platforms
 
 
-Building
+## Building
+
 CopperSpice libraries are built using modern CMake syntax
 C++ applications using CopperSpice can be built with CMake or any other build system of your choice
-BSD Libraries
-CsSignal is a library for thread aware Signal/Slot delivery. It is used by CopperSpice for efficiency while maintaining the full API.
-CsString is a Unicode aware string library. It is used by CopperSpice to support UTF-8 (QString8) and UTF-16. (QString16)
-libGuarded encapsulates a mutex with the corresponding data. There are several different classes available to support multi-threading allowing developers to choose the most appropriate solution. It is used by the CsSignal library.
+
+## BSD Libraries
+
+- CsSignal is a library for thread aware Signal/Slot delivery. It is used by CopperSpice for efficiency while maintaining the full API.
+- CsString is a Unicode aware string library. It is used by CopperSpice to support UTF-8 (QString8) and UTF-16. (QString16)
+- libGuarded encapsulates a mutex with the corresponding data. There are several different classes available to support multi-threading allowing developers to choose the most appropriate solution. It is used by the CsSignal library.
+
 For more information refer to our presentations from CppNow, CppCon, and our YouTube videos. Presentations
 
-Converting to CopperSpice
-The process of converting to CopperSpice is simple and quick. Simply convert your Qt application header files one time using our PepperMill utility. The Makefiles from our demo program KitchenSink, DoxyPress,or and the Diamond Editor applications can be used as a guide to create your project files.
+## Converting to CopperSpice
 
-Getting Started
-The CS Overview documentation includes how to build CopperSpice from source, setting up a project using CopperSpice, and how to migrate from Qt to CopperSpice.  CS Overview Documentation
+The process of converting to CopperSpice is simple and quick. Simply convert your Qt application header files one time using our PepperMill utility. The Makefiles from our demo program KitchenSink, DoxyPress or and the Diamond Editor applications can be used as a guide to create your project files.
 
-Contacting CopperSpice
+## Getting Started
+
+The CS Overview documentation includes how to build CopperSpice from source, setting up a project using CopperSpice, and how to migrate from Qt to CopperSpice. CS Overview Documentation
+
+## Contacting CopperSpice
+
 Ask questions or request a feature on our GitHub repository  CopperSpice  DoxyPress
 Join a discussion on our forum  Forum
 Email the co-founders: info [at] copperspice.com
