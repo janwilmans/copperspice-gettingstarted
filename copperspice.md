@@ -51,7 +51,7 @@ This also means a template class can now inherit from QObject with no restrictio
 
 ## Type and thread safe Signals/Slots
 
-We now have thread aware Signal/Slot delivery, also complex data types can be used as Slot arguments, for example the following is valid in CopperSpice: QMap<QString, int>. 
+We now have a thread aware Signal/Slot delivery, that is both much more performant and also supports the use of complex data types as Slot arguments. For example the following is now a valid argument in CopperSpice: QMap<QString, int>. 
 
 # More generic containers 
 
@@ -77,28 +77,17 @@ CsPaint wraps the (very complicated) vulcan API on all platforms. CsPaint enable
 - atomic support (QAtomicInt, QAtomicPointer) wrapping the C++ standard library functionality
 - QLocale refactored to use UTF-8 strings for better Unicode text support
 - Codecs now use UTF-8 strings
-- Improved platform specific support for 
-
-Redesigned plugin system
-Integration of CsSignal
-
-Improved thread aware Signal/Slot delivery
-Increased efficiency while maintaining the full Signal/Slot API
-Deadlocks in Signal/Slot processing have been eliminated
-Integration of CsString
-Improved storage to properly represent Unicode strings
-Added new QString8 (UTF-8) and QString16 (UTF-16) classes
-QString is synonymous with QString8
-Moved various formatting methods to the new QStringParser class
-Developed a new QRegularExpression class which uses iterators internally to handle UTF-8 and UTF-16
-Created a new QStringView class which works correctly with the new QString classes
-Remove string surrogate checking since it is not required with UTF-8 / UTF-16 encoding
-
+- Centralized all platform specific code to single location to make it maintainable
+- The plugin system was rewritten from scratch and is now robust and free of undefined behaviour
+- QString is now synonymous with QString8
+- Various formatting methods found a new home in QStringParser
+- QRegularExpression can handle both UTF-8 and UTF-16
+- QStringView to use with QString
 
 # Removed features
 
 - dropped support of obsolete platforms
-
+- removed string surrogate checking since it is not required with UTF-8 / UTF-16 encoding
 
 ## Building
 
