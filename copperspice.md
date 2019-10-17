@@ -41,50 +41,47 @@ DOM, Reader
 ## CsXmlPatterns
 Schema, Xml Query
 
-Meta-Object Compiler (moc)
-The Meta-Object Compiler is no longer required for generating reflection meta data in CopperSpice
-Since moc is no longer required it was completely removed
-All functionality originally provided by moc was replaced with compile time templates
-CopperSpice automatically generates meta data for processing Signals/Slots and Introspection
-A template class can now inherit from QObject with no restrictions on data types
-Complex data types can be used as Slot arguments, for example the following is valid in CopperSpice: QMap<QString, int>
-Removal of moc simplifies the build process
+# Fully Embracing C++ Centric Development
 
-Benefits of CopperSpice
-Extensive use of modern C++ functionality
-templates, variadic templates, lambdas
-expression SFINAE
-threading model
-move semantics, override
-constexpr, decltype, type traits, tuple
-strongly typed enums
-Redesigned all container classes
-Composition is used to wrap the C++ standard library containers
-QVector, QList, QStringList, QLinkedList, QSet, QStack, QQueue
-QMap, QHash, QMultiMap, QMultiHash
-Supports both the STL and Qt API
-Implement QMultiHash and QMultiMap as separate classes from QHash and QMap
-Reverse iterators added
-Removed copy on write semantics
-Added QFlatMap
-Ordered map which stores elements in contiguous memory as a sorted vector of pairs
-Similar API to QMap
+## Simplified build process
 
-CopperSpice includes a majority of the Qt 5 classes
-Improved CsNetwork and support for OpenSSL 1.0.x
-Support for TLS and SPDY added
-Add support for SHA-2 and SHA-3
-Reimplemented atomic support (QAtomicInt, QAtomicPointer) wrapping the C++ standard library functionality
-Enhanced CopperSpice to use STL algorithms rather than hand rolled algorithms
-Removed support of obsolete platforms
-QLocale classes refactored to use UTF-8 string classes
-Update codec classes to use UTF-8 string classes
-High DPI support
-Moved to Unicode 11, added support for Harfbuzz 2 for text shaping
-Improved platform specific support
+The Meta-Object Compiler (moc) is a wonderfull piece of work in a C++98 context, however with the advent of C++11/14 it has served its purpose and for developers that are using more modern compilers it is limiting and making the build process more complicated then it needs to be. The Meta-Object Compiler is no longer required for generating reflection meta data in CopperSpice, so it was removed.
+
+This also means a template class can now inherit from QObject with no restrictions on data types
+
+## Type and thread safe Signals/Slots
+
+We now have thread aware Signal/Slot delivery, also complex data types can be used as Slot arguments, for example the following is valid in CopperSpice: QMap<QString, int>. 
+
+# More generic containers 
+
+QVector, QList, QStringList, QLinkedList, QSet, QStack, QQueue, QMap, QHash, QMultiMap, QMultiHash, all these containers are now wrapping STL containers and a have an STL compatible interface, this means you can now use CopperSpice containters with STL algorithms out of the box and things like a range-based for just works. For backwards compatiblity the containers also support the Qt API.
+
+Several containers where rewritten to remove suprising behaviour, for example QMap could contain multiple values with the same key, something normally only a multi-map can do. To solved this a couple of new containers where added, namely: QFlatMap, QMultiHash and QMultiMap. Futhermore reverse iterators where added and copy on write semantics removed.
+
+# (partial) Backwards compatibility 
+
+For backwards compatibility CopperSpice includes a majority of the Qt5 classes.
+
+# High DPI support
+
+CsPaint wraps the (very complicated) vulcan API on all platforms. CsPaint enables rendering of very crisp fonts on _any_ resolution without knowing in advance what resolution will be used. Also native 3D hardware acceleration can be harnessed to deliver the best possible UI performance. Unicode 11 and Harfbuzz 2 are used for text shaping.
+
+# Update network support
+
+ CsNetwork now supports OpenSSL 1.0.x, TLS and SPDY.
+
+# Other improvements
+
+- support for SHA-2 and SHA-3
+- atomic support (QAtomicInt, QAtomicPointer) wrapping the C++ standard library functionality
+- QLocale refactored to use UTF-8 strings for better Unicode text support
+- Codecs now use UTF-8 strings
+- Improved platform specific support for 
+
 Redesigned plugin system
-
 Integration of CsSignal
+
 Improved thread aware Signal/Slot delivery
 Increased efficiency while maintaining the full Signal/Slot API
 Deadlocks in Signal/Slot processing have been eliminated
@@ -96,6 +93,12 @@ Moved various formatting methods to the new QStringParser class
 Developed a new QRegularExpression class which uses iterators internally to handle UTF-8 and UTF-16
 Created a new QStringView class which works correctly with the new QString classes
 Remove string surrogate checking since it is not required with UTF-8 / UTF-16 encoding
+
+
+# Removed features
+
+- dropped support of obsolete platforms
+
 
 Building
 CopperSpice libraries are built using modern CMake syntax
