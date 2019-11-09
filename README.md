@@ -27,11 +27,18 @@ To work around this:
 ## visual studio 2017 / HelloHerbs
 A simple but odd hybrid console / GUI application.
 - uses only code to describe the UI (no XML and no designer tools required)
+- always links to the release libraries even in debug mode, see cs_assert.h for the workaround for assertions.
 
 ## visual studio 2017 / CompiledUIControl
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
 
-[![Build Status](https://dev.azure.com/copperspice/copperspice-msvc/_apis/build/status/janwilmans.copperspice-gettingstarted?branchName=master)](https://dev.azure.com/copperspice/copperspice-msvc/_build/latest?definitionId=2&branchName=master)
+## visual studio 2019 / HelloHerbs
+The simple but odd hybrid console / GUI application, however, none of weird debug/release tricks.
+This is an example you want to use if you want a commandline application.
+
+## visual studio 2019 / CompiledUIControl
+Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
+This is the example you want to use for a normal window GUI application.
 
 Note that copperspice requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8 or greater.
 
@@ -39,39 +46,5 @@ Note that copperspice requires a compliant C++14 compiler, which in case of visu
 #if _MSC_VER < 1914
 #    error "CopperSpice requires Visual Studio 2017 Version 15.8 or greater"
 #endif
-```
-
-# nuget packaging notes
-
-The Copperspice.1.5.2.1.nuspec files was created using <https://github.com/NuGetPackageExplorer/NuGetPackageExplorer>
-
-inital structure:
-```
-|   Copperspice.1.5.2.1.nuspec
-|   pack.bat
-|
-\---build
-    \---native
-        |   copperspice.targets
-        |
-        \---copperspice
-                placeholder_readme.txt
-```
-
-ready to be packaged structure:
-
-```
-|   Copperspice.1.5.2.1.nuspec
-|   pack.bat
-|
-\---build
-    \---native
-        |   copperspice.targets
-        |
-        \---copperspice
-            +---bin
-            +---cmake
-            +---include
-            \---lib
 ```
 
