@@ -15,7 +15,7 @@
   <ItemGroup>
     <CustomBuild Include="$(MSBuildProjectDirectory)\**\*.ui">
       <Message>Processing copperspice UI files *.ui to $(OutDir)copperspice_generated\ui_*.h</Message>
-      <Command>"$(MSBuildThisFileDirectory)copperspice\bin\uic.exe" -o "$(OutDir)copperspice_generated\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command>"$(MSBuildThisFileDirectory)copperspice\release\bin\uic.exe" -o "$(OutDir)copperspice_generated\ui_%(Filename).h" "%(FullPath)"</Command>
       <Outputs>$(OutDir)copperspice_generated\ui_%(Filename).h</Outputs>
     </CustomBuild>
   </ItemGroup>
