@@ -6,7 +6,7 @@ A collection of easy to use copperspice examples.
 Use these steps to start:
 
 * `git clone https://github.com/janwilmans/copperspice-gettingstarted.git` 
-* open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
+* open the /copperspice-gettingstarted/visual studio 2019/HelloHerbs/HelloHerbs.sln 
 * press F5 to build and run it. 
 
 ## Note for all latest VS users
