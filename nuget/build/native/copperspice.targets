@@ -9,7 +9,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CsCore1.5.lib;CsGui1.5.lib;CsMultimedia1.5.lib;CsNetwork1.5.lib;CsOpenGL1.5.lib;CsPhonon1.5.lib;CsScript1.5.lib;CsSql1.5.lib;CsSvg1.5.lib;CsWebKit1.5.lib;CsXml1.5.lib;CsXmlPatterns1.5.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>CsCore1.6.lib;CsGui1.6.lib;CsMultimedia1.6.lib;CsNetwork1.6.lib;CsOpenGL1.6.lib;CsScript1.6.lib;CsSql1.6.lib;CsSvg1.6.lib;CsWebKit1.6.lib;CsXml1.6.lib;CsXmlPatterns1.6.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -23,6 +23,11 @@
     <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll">
       <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
       <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
+      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll">
+      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
+      <Command>xcopy "%(FullPath)" "$(OutDir)\platforms\" /D /Y</Command>
       <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
     </CustomBuild>
   </ItemGroup>
