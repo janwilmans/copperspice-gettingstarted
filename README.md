@@ -1,5 +1,7 @@
 # copperspice-gettingstarted
-A collection of easy to use copperspice examples.
+A collection of easy to use copperspice examples, specifically:
+* using visual studio 2019
+* using the copperspice nuget package
 
 # Usage
 
