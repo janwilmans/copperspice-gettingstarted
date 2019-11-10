@@ -1,15 +1,20 @@
+
 :: do not change the build target paths (causes stashed.io misses)
-:: the ninja generator will use the default target platform of the 'Native Tools Command Prompt' it runs in.
+:: at least "Visual Studio 2017 Version 15.8" is required to build
+:: vs2019 community edition is required to build.
 
+set SRC=%cd%
 mkdir x64
-mkdir x64\release
-pushd x64\release
-cmake -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
+pushd x64
+:: remember -DCMAKE_BUILD_TYPE=RelWithDebInfo has no effect on "Visual Studio" multi-config generatators
+cmake -G "Visual Studio 15 2017" -A x64 -T v141,host=x64 %SRC%
 popd
 
-mkdir x64\debug
-pushd x64\debug
-cmake -G Ninja -DCMAKE_BUILD_TYPE=Debug ..
-popd
+@echo off
+echo Compile using: (order of arguments is important!)
+echo cmake --build x64 --config Debug
+echo   or 
+echo cmake --build x64 --config RelWithDebInfo
 
+pause
 
