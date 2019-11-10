@@ -3,16 +3,25 @@ A collection of easy to use copperspice examples, specifically:
 * using visual studio 2019
 * using the copperspice nuget package
 
+This 'getting-started' is currently not concerned with platform-independence, the NuGet solution targets windows only, however, it you want to use it on other platforms, its a matter of writing a CMake file to make it work.
+
+To get started with Copperspice, there is no need to understand all of this at once.
+The example if offer here focus on getting you up and running in 5 minutes, on windows, using visual studio 2019 (community edition works, any other version will work fine as well.)
+
 # Usage
 
 Use these steps to start:
 
+* install Visual Studio from here https://visualstudio.microsoft.com/vs/
+  * during installation choose 'Desktop development with C++'
+  
 * `git clone https://github.com/janwilmans/copperspice-gettingstarted.git` 
 * open the /copperspice-gettingstarted/visual studio 2019/HelloHerbs/HelloHerbs.sln 
 * press F5 to build and run it. 
 
+
 ## Note for all latest VS users
-There is currently two bugs in both the latest vs2017 and vs2019 version:
+There is currently two bugs in the latest vs2017 version: (they are fixed in vs2019 16.3.8)
 
 * projects that have never been opened before will fail the first compilation for a project that has NuGet references. This is because it does not actually retreive the NuGet packages before building.
 * projects that have custom compilation rules coming from a Nuget package don't show the references correctly in the solution explorer.
