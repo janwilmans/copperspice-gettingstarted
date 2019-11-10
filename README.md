@@ -1,16 +1,27 @@
 # copperspice-gettingstarted
-A collection of easy to use copperspice examples.
+A collection of easy to use copperspice examples, specifically:
+* using visual studio 2019
+* using the copperspice nuget package
+
+This 'getting-started' is currently not concerned with platform-independence, the NuGet solution targets windows only, however, it you want to use it on other platforms, its a matter of writing a CMake file to make it work.
+
+To get started with Copperspice, there is no need to understand all of this at once.
+The example if offer here focus on getting you up and running in 5 minutes, on windows, using visual studio 2019 (community edition works, any other version will work fine as well.)
 
 # Usage
 
 Use these steps to start:
 
+* install Visual Studio from here https://visualstudio.microsoft.com/vs/
+  * during installation choose 'Desktop development with C++'
+  
 * `git clone https://github.com/janwilmans/copperspice-gettingstarted.git` 
-* open the /copperspice-gettingstarted/visual studio 2017/HelloHerbs/HelloHerbs.sln 
+* open the /copperspice-gettingstarted/visual studio 2019/HelloHerbs/HelloHerbs.sln 
 * press F5 to build and run it. 
 
+
 ## Note for all latest VS users
-There is currently two bugs in both the latest vs2017 and vs2019 version:
+There is currently two bugs in the latest vs2017 version: (they are fixed in vs2019 16.3.8)
 
 * projects that have never been opened before will fail the first compilation for a project that has NuGet references. This is because it does not actually retreive the NuGet packages before building.
 * projects that have custom compilation rules coming from a Nuget package don't show the references correctly in the solution explorer.
@@ -24,14 +35,6 @@ To work around this:
 4) all references show ok now, the project should build and intellisence should work and you will not have to do this again.
 
 # Example projects
-## visual studio 2017 / HelloHerbs
-A simple but odd hybrid console / GUI application.
-- uses only code to describe the UI (no XML and no designer tools required)
-
-## visual studio 2017 / CompiledUIControl
-Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
-
-[![Build Status](https://dev.azure.com/copperspice/copperspice-msvc/_apis/build/status/janwilmans.copperspice-gettingstarted?branchName=master)](https://dev.azure.com/copperspice/copperspice-msvc/_build/latest?definitionId=2&branchName=master)
 
 Note that copperspice requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8 or greater.
 
@@ -41,37 +44,21 @@ Note that copperspice requires a compliant C++14 compiler, which in case of visu
 #endif
 ```
 
-# nuget packaging notes
 
-The Copperspice.1.5.2.1.nuspec files was created using <https://github.com/NuGetPackageExplorer/NuGetPackageExplorer>
+## visual studio 2017 / HelloHerbs
+A simple but odd hybrid console / GUI application.
+- uses only code to describe the UI (no XML and no designer tools required)
+- always links to the release libraries even in debug mode, see cs_assert.h for the workaround for assertions.
 
-inital structure:
-```
-|   Copperspice.1.5.2.1.nuspec
-|   pack.bat
-|
-\---build
-    \---native
-        |   copperspice.targets
-        |
-        \---copperspice
-                placeholder_readme.txt
-```
+## visual studio 2017 / CompiledUIControl
+Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
 
-ready to be packaged structure:
+## visual studio 2019 / HelloHerbs
+The simple but odd hybrid console / GUI application, however, none of weird debug/release tricks.
+This is an example you want to use if you want a commandline application.
 
-```
-|   Copperspice.1.5.2.1.nuspec
-|   pack.bat
-|
-\---build
-    \---native
-        |   copperspice.targets
-        |
-        \---copperspice
-            +---bin
-            +---cmake
-            +---include
-            \---lib
-```
+## visual studio 2019 / CompiledUIControl
+Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
+This is the example you want to use for a normal window GUI application.
+
 
