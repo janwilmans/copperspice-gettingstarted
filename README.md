@@ -35,6 +35,16 @@ To work around this:
 4) all references show ok now, the project should build and intellisence should work and you will not have to do this again.
 
 # Example projects
+
+Note that copperspice requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8 or greater.
+
+```
+#if _MSC_VER < 1914
+#    error "CopperSpice requires Visual Studio 2017 Version 15.8 or greater"
+#endif
+```
+
+
 ## visual studio 2017 / HelloHerbs
 A simple but odd hybrid console / GUI application.
 - uses only code to describe the UI (no XML and no designer tools required)
@@ -51,11 +61,4 @@ This is an example you want to use if you want a commandline application.
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
 This is the example you want to use for a normal window GUI application.
 
-Note that copperspice requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8 or greater.
-
-```
-#if _MSC_VER < 1914
-#    error "CopperSpice requires Visual Studio 2017 Version 15.8 or greater"
-#endif
-```
 
