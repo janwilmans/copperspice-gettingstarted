@@ -37,7 +37,7 @@ To work around this:
 
 # Example projects
 
-Note that copperspice requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8 or greater.
+Note that CopperSpice 1.5.x requires a compliant C++14 compiler, which in case of visual studio means 2017 15.8.1 or greater.
 
 ```
 #if _MSC_VER < 1914
@@ -45,6 +45,7 @@ Note that copperspice requires a compliant C++14 compiler, which in case of visu
 #endif
 ```
 
+CopperSpice 1.6.x and beyond require C++17, however, since Visual Studio 2017 15.8 always completely supported it, the minimal version has not changed.
 
 ## visual studio 2017 / HelloHerbs
 A simple but odd hybrid console / GUI application.
