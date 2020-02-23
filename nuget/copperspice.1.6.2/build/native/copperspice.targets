@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>
+        $(OutDir)copperspice_generated\;$(MSBuildThisFileDirectory)copperspice\include;$(MSBuildThisFileDirectory)copperspice\include\QtCore;
+        $(MSBuildThisFileDirectory)copperspice\include\QtWebKit;$(MSBuildThisFileDirectory)copperspice\include\QtGui;$(MSBuildThisFileDirectory)copperspice\include\QtMultimedia;$(MSBuildThisFileDirectory)copperspice\include\QtNetwork;$(MSBuildThisFileDirectory)copperspice\include\QtOpenGL;$(MSBuildThisFileDirectory)copperspice\include\QtScript;$(MSBuildThisFileDirectory)copperspice\include\QtSql;$(MSBuildThisFileDirectory)copperspice\include\QtSvg;$(MSBuildThisFileDirectory)copperspice\include\QtWebKit;$(MSBuildThisFileDirectory)copperspice\include\QtXml;$(MSBuildThisFileDirectory)copperspice\include\QtXmlPatterns;%(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CsCore1.6.lib;CsWebKit1.6.lib;CsGui1.6.lib;CsMultimedia1.6.lib;CsNetwork1.6.lib;CsOpenGL1.6.lib;CsScript1.6.lib;CsSql1.6.lib;CsSvg1.6.lib;CsWebKit1.6.lib;CsXml1.6.lib;CsXmlPatterns1.6.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="$(MSBuildProjectDirectory)\**\*.ui">
+      <Message>Processing copperspice UI files *.ui to $(OutDir)copperspice_generated\ui_*.h</Message>
+      <Command>"$(MSBuildThisFileDirectory)copperspice\release\bin\uic.exe" -o "$(OutDir)copperspice_generated\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Outputs>$(OutDir)copperspice_generated\ui_%(Filename).h</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll">
+      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
+      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
+      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll">
+      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
+      <Command>xcopy "%(FullPath)" "$(OutDir)\platforms\" /D /Y</Command>
+      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
