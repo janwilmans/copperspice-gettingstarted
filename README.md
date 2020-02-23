@@ -2,7 +2,7 @@
 
 A collection of easy to use copperspice examples, specifically:
 * using visual studio 2019
-* using the copperspice 1.6.1 nuget package
+* using the copperspice 1.6.2 nuget package, see https://www.nuget.org/packages/Copperspice/
 
 This 'getting-started' is currently not concerned with platform-independence, the NuGet solution targets windows only, however, it you want to use it on other platforms, its a matter of writing a CMake file to make it work.
 
