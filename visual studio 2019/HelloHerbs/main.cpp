@@ -3,11 +3,17 @@
 #pragma warning( push )
 #pragma warning(disable : 4251 4244 4250 4275)
 
-#include <qstring.h>
-#include <qmainwindow.h>
-#include <qapplication.h>
-#include <qmenubar.h>
-#include <qstatusbar.h>
+#include <QString>
+#include <QMainWindow>
+#include <QApplication>
+#include <QMenuBar>
+#include <QStatusBar>
+
+#include <QVBoxLayout>
+#include <QWebView>
+#include <QMdiSubWindow>
+#include <QMdiArea>
+
 
 #pragma warning( pop )
 
@@ -15,8 +21,34 @@
 #include <chrono>
 using namespace std::chrono_literals;
 
+void test()
+{
+	QApplication app(__argc, __argv);
+	QMainWindow w;
+	w.resize(400, 300);
+	w.setWindowTitle("Hello Copperspice");
+
+	auto menubar = w.menuBar();
+	auto menu = menubar->addMenu("Test");
+	auto openAction = menu->addAction("Open browser");
+	QWebView* webview = new QWebView(&w);
+	w.setCentralWidget(webview);
+	webview->show();
+	w.show();
+
+	QObject::connect(openAction, &QAction::triggered, &w, [webview]
+		{
+			QUrl url("file:///D:/project2/kitchensink/crash_cs.html");
+			webview->load(url);
+		});
+
+	app.exec();
+}
+
 int main(int argc, char *argv[])
 {
+	test();
+	/*
 	QApplication app(argc, argv);
 	QMainWindow mainWindow;
 
@@ -42,4 +74,6 @@ int main(int argc, char *argv[])
 	QString qs("Hello copperspice\n");
 	std::cout << qs.toStdString();
 	return app.exec();
+	*/
+	return 0;
 }

@@ -3,11 +3,11 @@
 #pragma warning( push )
 #pragma warning(disable : 4251 4244 4250 4275)
 
-#include <qstring.h>
-#include <qmainwindow.h>
-#include <qapplication.h>
-#include <qmenubar.h>
-#include <qstatusbar.h>
+#include <QString>
+#include <QWindow>
+#include <QApplication>
+#include <QMenuBar>
+#include <QStatusBar>
 
 // any *.ui files in the project will be automatically compiled into corresponding $(OutDir)copperspice_generated\ui_*.h files.
 // since $(OutDir)copperspice_generated in included in the compiler include path, this works:
