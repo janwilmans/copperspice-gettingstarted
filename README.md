@@ -20,21 +20,21 @@ Use these steps to start:
 * open the \copperspice-gettingstarted\example_project_vs2019\HelloHerbs\HelloHerbs.sln 
 * press F5 to build and run it. 
 
-## visual studio 2019 / HelloHerbs
+## Visual Studio 2019 / HelloHerbs
 The simple but odd hybrid console / GUI application, however, none of weird debug/release tricks.
 This is an example you want to use if you want a commandline application.
 
-## visual studio 2019 / CompiledUIControl
+## Visual Studio 2019 / CompiledUIControl
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
 This is the example you want to use for a normal window GUI application.
 
-## visual studio 2017 / HelloHerbs
+## Visual Studio 2017 / HelloHerbs
 A simple but odd hybrid console / GUI application.
 - uses only code to describe the UI (no XML and no designer tools required)
 - always links to the release libraries even in debug mode, see cs_assert.h for the workaround for assertions.
   This is for illustrative purposes only, just to show it can be done. *not recommended for production*
 
-## visual studio 2017 / CompiledUIControl
+## Visual Studio 2017 / CompiledUIControl
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
 
 ## Minimal requirements
