@@ -1,4 +1,4 @@
-# How to get started with CopperSpice on Visual Studio in just a few minutes.
+# How to get started with CopperSpice on Visual Studio
 
 A collection of easy to use copperspice examples, specifically:
 * using visual studio 2019
