@@ -20,8 +20,36 @@ Use these steps to start:
 * open the \copperspice-gettingstarted\example_project_vs2019\HelloHerbs\HelloHerbs.sln 
 * press F5 to build and run it. 
 
+## visual studio 2019 / HelloHerbs
+The simple but odd hybrid console / GUI application, however, none of weird debug/release tricks.
+This is an example you want to use if you want a commandline application.
 
-## Note for VS2017 users
+## visual studio 2019 / CompiledUIControl
+Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
+This is the example you want to use for a normal window GUI application.
+
+## visual studio 2017 / HelloHerbs
+A simple but odd hybrid console / GUI application.
+- uses only code to describe the UI (no XML and no designer tools required)
+- always links to the release libraries even in debug mode, see cs_assert.h for the workaround for assertions.
+  This is for illustrative purposes only, just to show it can be done. *not recommended for production*
+
+## visual studio 2017 / CompiledUIControl
+Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
+
+## Minimal requirements
+
+CopperSpice 1.5.x based projects require a compliant C++14 compiler, which in case of visual studio means 2017 15.8.1 or greater.
+
+```
+#if _MSC_VER < 1914
+#    error "CopperSpice requires Visual Studio 2017 Version 15.8 or greater"
+#endif
+```
+
+CopperSpice 1.6.x and beyond require C++17, however, since Visual Studio 2017 15.8 already completely supported it, the minimal version has not changed.
+
+## Special note for VS2017 users
 There are two bugs you may encounter in the latest vs2017 version: (they are fixed in vs2019 16.3.8)
 
 * projects that have never been opened before will fail the first compilation for a project that has NuGet references. This is because it does not automatically retreive the NuGet packages before building.
@@ -34,34 +62,5 @@ To work around this:
 2) save all files (File->Save all)
 3) close visual studio and reopen the same solution
 4) all references show ok now, the project should build, IntelliSense should work and you will not have to do this again.
-
-# Example projects
-
-CopperSpice 1.5.x based projects require a compliant C++14 compiler, which in case of visual studio means 2017 15.8.1 or greater.
-
-```
-#if _MSC_VER < 1914
-#    error "CopperSpice requires Visual Studio 2017 Version 15.8 or greater"
-#endif
-```
-
-CopperSpice 1.6.x and beyond require C++17, however, since Visual Studio 2017 15.8 already completely supported it, the minimal version has not changed.
-
-## visual studio 2017 / HelloHerbs
-A simple but odd hybrid console / GUI application.
-- uses only code to describe the UI (no XML and no designer tools required)
-- always links to the release libraries even in debug mode, see cs_assert.h for the workaround for assertions.
-  This is for illustrative purposes only, just to show it can be done. *not recommended for production*
-
-## visual studio 2017 / CompiledUIControl
-Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
-
-## visual studio 2019 / HelloHerbs
-The simple but odd hybrid console / GUI application, however, none of weird debug/release tricks.
-This is an example you want to use if you want a commandline application.
-
-## visual studio 2019 / CompiledUIControl
-Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
-This is the example you want to use for a normal window GUI application.
 
 
