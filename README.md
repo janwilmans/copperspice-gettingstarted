@@ -20,22 +20,34 @@ Use these steps to start:
 * open the \copperspice-gettingstarted\example_project_vs2019\HelloHerbs\HelloHerbs.sln 
 * press F5 to build and run it. 
 
-## Visual Studio 2019 / HelloHerbs
+## Visual Studio 2019 / example_project_vs2019\HelloHerbs
 The simple but odd hybrid console / GUI application, however, none of weird debug/release tricks.
 This is an example you want to use if you want a commandline application.
 
-## Visual Studio 2019 / CompiledUIControl
+## Visual Studio 2019 / example_project_vs2019\CompiledUIControl
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
 This is the example you want to use for a normal window GUI application.
 
-## Visual Studio 2017 / HelloHerbs
+## Visual Studio 2017 / example_project_vs2017\HelloHerbs
 A simple but odd hybrid console / GUI application.
 - uses only code to describe the UI (no XML and no designer tools required)
 - always links to the release libraries even in debug mode, see cs_assert.h for the workaround for assertions.
   This is for illustrative purposes only, just to show it can be done. *not recommended for production*
 
-## Visual Studio 2017 / CompiledUIControl
+## Visual Studio 2017 / example_project_vs2017\CompiledUIControl
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
+
+## Visual Studio 2017 / example_project_vs2017\CompiledUIControl
+Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
+
+## More portability, digging deeper with CMake / example_project_cmake
+
+Visual Studio 2019 also has CMake or 'Open Folder' support. This enables you to open different kinds of projects, specifically usefull is the cmake project support. The example_project_cmake directory contains an example CMake project.
+
+Once you have the basic setup working, much more information can be found on Jason Turners C++ Weekly - Ep 208 - The Ultimate CMake / C++ Quick Start video https://www.youtube.com/watch?v=YbgH7yat-Jo
+
+In that video he mentions the C++ Starter project at https://github.com/lefticus/cpp_starter_project. The repo not only contains very ice examples of CMake features, but also .clang-format, .clang-tidy and .cmake-format.yaml examples. I recommened you check these out.
+
 
 ## Minimal requirements
 
