@@ -1,4 +1,5 @@
 * choose whether to build against v140 or v141 (both require using vs2019 because of cmake version)
+* manually copy the *.pdb these are not installed
 * see nuget\copperspice.x.x.x\build\native\copperspice\content.txt for files to copy manually
 
 references:
