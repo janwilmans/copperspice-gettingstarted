@@ -20,56 +20,27 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\bin\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-    <CustomBuild Include="$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib\*.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="mainwindow.ui">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="mainwindow.ui" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsCore1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsGui1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsMultimedia1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsNetwork1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsOpenGL1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsScript1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsSql1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsSvg1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsWebKit1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsXml1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsXmlPatterns1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsGuiWin1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsMultimedia_DirectShow1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsMultimedia_m3u1.6.dll" />
+    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsPrinterDriverWin1.6.dll" />
   </ItemGroup>
 </Project>

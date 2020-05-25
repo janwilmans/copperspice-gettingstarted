@@ -29,7 +29,6 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 	Ui::MainWindow window;
 	window.setupUi(&mainWindow);
 
-	mainWindow.resize(400, 300);
 	mainWindow.setWindowTitle("Hello Copperspice");
 
 	auto menubar = mainWindow.menuBar();

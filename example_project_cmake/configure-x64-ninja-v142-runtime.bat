@@ -32,14 +32,14 @@ rd /s /q x64
 mkdir x64
 mkdir x64\release
 pushd x64\release
-cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=RelWithDebInfo -G Ninja %SRC%
+cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_IGNORE_PATH="C:/MinGW/bin"  -G Ninja %SRC%
 popd
 
 set CMAKE_PREFIX_PATH=D:\project2\copperspice-msvc\out\install\x64-Debug\cmake\CopperSpice
 
 mkdir x64\debug
 pushd x64\debug
-cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=Debug -G Ninja %SRC%
+cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_IGNORE_PATH="C:/MinGW/bin" -G Ninja %SRC%
 popd
 
 @echo off
