@@ -17,6 +17,24 @@
           "type": "PATH"
         }
       ]
+    },
+    {
+      "name": "x64-Release",
+      "generator": "Ninja",
+      "configurationType": "Release",
+      "buildRoot": "${projectDir}\\out\\build\\${name}",
+      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "-v",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "msvc_x64_x64" ],
+      "variables": [
+        {
+          "name": "CopperSpice_DIR",
+          "value": "D:\\project2\\copperspice-msvc\\x64\\release\\install\\cmake\\CopperSpice",
+          "type": "PATH"
+        }
+      ]
     }
   ]
 }

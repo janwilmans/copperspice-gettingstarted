@@ -2,7 +2,7 @@
 
 #ifdef _MSC_VER
 #pragma warning( push )
-#pragma warning(disable : 4251 4244 4250 4275)
+#pragma warning(disable : 4251 4244 4250 4275 4127)
 #endif
 
 #include <QString>
@@ -16,6 +16,10 @@
 #include <QMdiSubWindow>
 #include <QMdiArea>
 #include <QObject>
+#include <QFont>
+#include <qfontdatabase.h>
+#include <set>
+
 
 #ifdef _MSC_VER
 #pragma warning( pop )
@@ -26,50 +30,70 @@
 #include <thread>
 #include <chrono>
 #include <iostream>
+#include <unordered_map>
+#include <map>
+
+__declspec(dllimport) void QString8Stats();
 
 using namespace std::chrono_literals;
+
 TEST_CASE("create QWindowsFontDatabase", "[QWindowsFontDatabase]")
 {
 	QApplication app(__argc, __argv);
-	QFont defaultFont;
-	QFontMetrics fontmetrics(defaultFont);
-	Stopwatch fontsize("fontsize");
-	fontmetrics.size(Qt::TextShowMnemonic, "test");
+
+	//two::QFontDatabasePrivate qfontdb;
+
+	//qfontdb.family("test 1");
+	//qfontdb.family("test 2");
+	//qfontdb.family("test 3");
+	//QFontDatabase db;
+	//db.styles("");
+
+	Stopwatch defaultfontTimer("font.defaultFamily()");
+	QFont font;
+	auto defaultFamily = font.defaultFamily();
+	std::cerr << "  defaultFamily: '" << defaultFamily.toLatin1().data() << "'\n";
+	CHECK(defaultFamily != "");
+	defaultfontTimer.stop();
+
+	Stopwatch dbtimer("QFontDatabase");
+	QFontDatabase db;
+	auto families = db.families();
+	auto count = families.count();
+	CHECK(count == 248);
+	std::cerr << "  db.families().count2(): " << count << "\n";
+
+	std::set<QString> uniques;
+	for (const auto& f : families)
+	{
+		//std::cerr << "  f: " << f.toLatin1().data() << "\n";
+		uniques.insert(f);
+	}
+	CHECK(uniques.size() == count); // checks that all the font family names are unique
+
+	db.removeAllApplicationFonts();
+
 }
 
-TEST_CASE("selectionRectForSimpleText", "[Font]")
-{
-	QApplication app(__argc, __argv);
-	QFont defaultFont;
-	QFontMetrics fontmetrics(defaultFont);
+/*
+ f: Tw Cen MT
+  f: Tw Cen MT Condensed
+  f: Tw Cen MT Condensed Extra Bold
+  f: Verdana
+  f: Viner Hand ITC
+  f: Vivaldi
+  f: Vladimir Script
+  f: Webdings
+  f: Wide Latin
+  f: Wingdings
+  f: Wingdings 2
+  f: Wingdings 3
+  f: Yu Gothic
+  f: Yu Gothic Light
+  f: Yu Gothic Medium
+  f: Yu Gothic UI
+  f: Yu Gothic UI Light
+  f: Yu Gothic UI Semibold
+  f: Yu Gothic UI Semilight
 
-	QString one("A");
-	QString three("AAA");
-	QString seven("AAAAAAA");
-	CHECK(fontmetrics.width(one, 0) == 0);
-	auto base = fontmetrics.width(one, 1);
-	CHECK(fontmetrics.width(three, 1) == base);
-	CHECK(fontmetrics.width(three, -1) == three.size() * base);
-	CHECK(fontmetrics.width(seven, 3) == 3 * base);
-	CHECK(fontmetrics.width(seven, -1) == seven.size() * base);
-}
-
-// QWebPage Assertion reproduction scenario
-// ASSERT failure in int __cdecl QFontMetrics::width(const class QString8&, int, int) const: "stringToCMap should not fail twice", file ..\..\src\gui\text\qfontmetrics.cpp, line 309
-TEST_CASE("selectionRectForSimpleText_BypassShaping", "[Font]")
-{
-	QApplication app(__argc, __argv);
-	QFont defaultFont;
-	QFontMetrics fontmetrics(defaultFont);
-
-	QString one("A");
-	QString three("AAA");
-	QString seven("AAAAAAA");
-	CHECK(fontmetrics.width(one, 0, Qt::TextBypassShaping) == 0);
-	//auto base = fontmetrics.width(one, 1, Qt::TextBypassShaping);
-
-	//CHECK(fontmetrics.width(three, 1, Qt::TextBypassShaping) == base); // assertion occurs here
-	//CHECK(fontmetrics.width(three, -1, Qt::TextBypassShaping) == three.size() * base);
-	//CHECK(fontmetrics.width(seven, 3, Qt::TextBypassShaping) == 3 * base);
-	//CHECK(fontmetrics.width(seven, -1, Qt::TextBypassShaping) == seven.size() * base);
-}
+  */
