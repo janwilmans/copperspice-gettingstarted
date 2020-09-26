@@ -1,4 +1,3 @@
-nuget/build/native/copperspice
 .vs/
 *.vcxproj.user
 packages/
@@ -7,3 +6,7 @@ x86/
 *.nupkg
 placeholder*
 out/
+nuget/copperspice/build/native/copperspice/debug
+nuget/copperspice/build/native/copperspice/release
+nuget/copperspice/build/native/copperspice/include
+

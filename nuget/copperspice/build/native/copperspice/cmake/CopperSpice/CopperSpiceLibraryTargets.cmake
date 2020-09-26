@@ -134,6 +134,14 @@ if(CMAKE_VERSION VERSION_LESS 2.8.12)
   message(FATAL_ERROR "This file relies on consumers using CMake 2.8.12 or greater.")
 endif()
 
+### nuget specific addition
+if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    set (_IMPORT_PREFIX "${_IMPORT_PREFIX}/debug")
+else()
+    set (_IMPORT_PREFIX "${_IMPORT_PREFIX}/release")
+endif()
+### nuget specific addition
+
 # Load information for each installed configuration.
 get_filename_component(_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
 file(GLOB CONFIG_FILES "${_DIR}/CopperSpiceLibraryTargets-*.cmake")

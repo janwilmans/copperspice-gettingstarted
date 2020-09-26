@@ -9,7 +9,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)copperspice\$(Configuration)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CsCore1.6.lib;CsWebKit1.6.lib;CsGui1.6.lib;CsMultimedia1.6.lib;CsNetwork1.6.lib;CsOpenGL1.6.lib;CsScript1.6.lib;CsSql1.6.lib;CsSvg1.6.lib;CsWebKit1.6.lib;CsXml1.6.lib;CsXmlPatterns1.6.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>CsCore1.7.lib;CsWebKit1.7.lib;CsGui1.7.lib;CsMultimedia1.7.lib;CsNetwork1.7.lib;CsOpenGL1.7.lib;CsScript1.7.lib;CsSql1.7.lib;CsSvg1.7.lib;CsWebKit1.7.lib;CsXml1.7.lib;CsXmlPatterns1.7.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

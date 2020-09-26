@@ -49,6 +49,14 @@ if(_IMPORT_PREFIX STREQUAL "/")
   set(_IMPORT_PREFIX "")
 endif()
 
+### nuget specific addition
+if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+    set (_IMPORT_PREFIX "${_IMPORT_PREFIX}/debug")
+else()
+    set (_IMPORT_PREFIX "${_IMPORT_PREFIX}/release")
+endif()
+### nuget specific addition
+
 # Create imported target CopperSpice::lconvert
 add_executable(CopperSpice::lconvert IMPORTED)
 
