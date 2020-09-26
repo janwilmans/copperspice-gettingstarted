@@ -23,7 +23,7 @@ else()
 endif()
 ### nuget specific addition
 
-edit: CopperSpiceBinaryTargets.cmake
+edit: CopperSpiceLibraryTargets.cmake
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)
   message(FATAL_ERROR "This file relies on consumers using CMake 2.8.12 or greater.")

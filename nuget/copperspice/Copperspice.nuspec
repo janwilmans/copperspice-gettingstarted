@@ -2,13 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Copperspice</id>
-    <version>1.6.2</version>
+    <version>1.6.3</version>
     <authors>Barbara Geller,Ansel Sermersheim</authors>
     <owners>Jan Wilmans</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="file">licenses\LICENSE.txt</license>
     <projectUrl>https://www.copperspice.com/</projectUrl>
-    <description>CopperSpice 1.6.2 (x64) is of a set of libraries to develop cross platform applications in C++.</description>
+    <description>CopperSpice 1.6.3 (x64) is of a set of libraries to develop cross platform applications in C++.</description>
     <releaseNotes>* This is a x64 only version
 * https://spdx.org/licenses/LGPL-2.1.html</releaseNotes>
     <copyright>Copyright 2020, LGPL version 2.1</copyright>
