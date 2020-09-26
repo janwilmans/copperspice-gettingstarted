@@ -31,3 +31,14 @@ To copperspice itself, build it from source code.
 
 7) Edit CopperSpiceBinaryTargets.cmake and CopperSpiceLibraryTargets.cmake to take into account that both debug and release binaries are destributed in the same Nuget package.
 
+8) edit copperspice-gettingstarted\nuget\copperspice\Copperspice.nuspec and update the 'version', 'description' and 'summary' fields
+
+9) run copperspice-gettingstarted\nuget\copperspice\create_nuget_package.bat to generate 'Copperspice.x.x.x.nupkg'
+
+10) test the nupkg locally by opening both copperspice-gettingstarted projects are updating to the latest local version.
+
+11) upload to Nuget https://www.nuget.org/packages/manage/upload
+
+in the upload form, specify the documenation link: https://raw.githubusercontent.com/copperspice/copperspice/master/README.md
+
+Done.

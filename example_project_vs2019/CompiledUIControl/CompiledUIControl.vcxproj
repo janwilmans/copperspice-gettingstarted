@@ -88,96 +88,14 @@
     <None Include="mainwindow.ui" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="mainwindow.ui">
-      <Message>Processing copperspice UI files *.ui to $(OutDir)copperspice_generated\ui_*.h</Message>
-      <Command>"$(MSBuildThisFileDirectory)copperspice\release\bin\uic.exe" -o "$(OutDir)copperspice_generated\ui_%(Filename).h" "%(FullPath)"</Command>
-      <Outputs>$(OutDir)copperspice_generated\ui_%(Filename).h</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsCore1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsGui1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsMultimedia1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsNetwork1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsOpenGL1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsScript1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsSql1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsSvg1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsWebKit1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsXml1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\bin\CsXmlPatterns1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsGuiWin1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)\platforms\" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsMultimedia_DirectShow1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)\platforms\" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsMultimedia_m3u1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)\platforms\" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="packages\Copperspice.1.6.3\build\native\copperspice\Release\lib\CsPrinterDriverWin1.6.dll">
-      <Message>Copy %(Filename)%(Extension) to $(OutDir)</Message>
-      <Command>xcopy "%(FullPath)" "$(OutDir)\platforms\" /D /Y</Command>
-      <Outputs>$(OutDir)%(Filename)%(Extension)</Outputs>
-    </CustomBuild>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="packages\Copperspice.1.6.3\build\native\copperspice.targets" Condition="Exists('packages\Copperspice.1.6.3\build\native\copperspice.targets')" />
+    <Import Project="packages\Copperspice.1.7.0\build\native\copperspice.targets" Condition="Exists('packages\Copperspice.1.7.0\build\native\copperspice.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\Copperspice.1.6.3\build\native\copperspice.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Copperspice.1.6.3\build\native\copperspice.targets'))" />
+    <Error Condition="!Exists('packages\Copperspice.1.7.0\build\native\copperspice.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Copperspice.1.7.0\build\native\copperspice.targets'))" />
   </Target>
 </Project>
