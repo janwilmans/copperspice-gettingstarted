@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include "catch2/catch.hpp"
 
 #ifdef _MSC_VER
 #pragma warning( push )
@@ -8,18 +8,7 @@
 #include <QString>
 #include <QMainWindow>
 #include <QApplication>
-#include <QMenuBar>
-#include <QStatusBar>
-
-#include <QVBoxLayout>
-#include <QtWebkit/QWebView>
-#include <QMdiSubWindow>
-#include <QMdiArea>
-#include <QObject>
-#include <QFont>
-#include <qfontdatabase.h>
-#include <set>
-
+#include <QFontDatabase>
 
 #ifdef _MSC_VER
 #pragma warning( pop )
@@ -33,46 +22,62 @@
 #include <unordered_map>
 #include <map>
 
-__declspec(dllimport) void QString8Stats();
-
 using namespace std::chrono_literals;
 
-TEST_CASE("create QWindowsFontDatabase", "[QWindowsFontDatabase]")
+TEST_CASE("create", "QFontDatabase")
 {
-	QApplication app(__argc, __argv);
+   QApplication app(__argc, __argv);
 
-	//two::QFontDatabasePrivate qfontdb;
+   Stopwatch dbtimer("QFontDatabase");
+   QFontDatabase db;
+   auto families = db.families();
+   dbtimer.stop();
 
-	//qfontdb.family("test 1");
-	//qfontdb.family("test 2");
-	//qfontdb.family("test 3");
-	//QFontDatabase db;
-	//db.styles("");
+   auto count = families.count();
+   CHECK(count > 240);
+   std::cerr << "  db.families().count(): " << count << "\n";
 
-	Stopwatch defaultfontTimer("font.defaultFamily()");
-	QFont font;
-	auto defaultFamily = font.defaultFamily();
-	std::cerr << "  defaultFamily: '" << defaultFamily.toLatin1().data() << "'\n";
-	CHECK(defaultFamily != "");
-	defaultfontTimer.stop();
+   int totalStyles = 0;
+   int totalSizes = 0;
+   for (auto& familyName: families)
+   {
+      auto styles = db.styles(familyName); // 2, 4 or 6 styles per family (mostly 4)
+      totalStyles += styles.count();
+      //std::cerr << "  styles.count(): " << styles.count() << "\n";
+      for (auto& styleName: styles)
+      {
+         auto sizes = db.pointSizes(familyName, styleName);
+         totalSizes += sizes.count(); // always 18 different point-sizes: 6, 8, 9, 10, 11, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72
+         // std::cerr << "  sizes.count(): " << sizes.count() << "\n";
+         // for (auto p: sizes)
+         // {
+         //    std::cerr << "  p: " << p << "\n";
+         // }
+      }
+   }
 
-	Stopwatch dbtimer("QFontDatabase");
-	QFontDatabase db;
-	auto families = db.families();
-	auto count = families.count();
-	CHECK(count == 248);
-	std::cerr << "  db.families().count2(): " << count << "\n";
+   CHECK(totalStyles > 940);
+   std::cerr << "  totalStyles: " << totalStyles << "\n";
+   CHECK(totalSizes > 17000);
+   std::cerr << "  totalSizes: " << totalSizes << "\n";
 
-	std::set<QString> uniques;
-	for (const auto& f : families)
-	{
-		//std::cerr << "  f: " << f.toLatin1().data() << "\n";
-		uniques.insert(f);
-	}
-	CHECK(uniques.size() == count); // checks that all the font family names are unique
+   std::set<QString> uniques;
+   for (const auto& f : families)
+   {
+      uniques.insert(f);
+   }
+   CHECK(uniques.size() == count); // checks that all the font family names are unique
+}
 
-	db.removeAllApplicationFonts();
+TEST_CASE("defaultFamily", "QFont")
+{
+   QApplication app(__argc, __argv);
 
+   Stopwatch defaultfontTimer("font.defaultFamily()");
+   QFont font;
+   auto defaultFamily = font.defaultFamily();
+   std::cerr << "  defaultFamily: " << defaultFamily.toLatin1().constData() << "\n";
+   defaultfontTimer.stop();
 }
 
 /*

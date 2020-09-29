@@ -1,4 +1,4 @@
-#include "catch.hpp"
+#include "catch2/catch.hpp"
 
 #ifdef _MSC_VER
 #pragma warning( push )
