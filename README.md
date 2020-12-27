@@ -32,6 +32,8 @@ This is an example you want to use if you want a commandline application.
 Basically the same example, but with an .ui (XML) file that is automatically compiled into a header file.
 This is the example you want to use for a normal window GUI application.
 
+# older examples, nolonger applicable to copperspice 1.7.x or higher.
+
 ## Visual Studio 2017 \ example_project_vs2017\HelloHerbs
 A simple but odd hybrid console / GUI application.
 - uses only code to describe the UI (no XML and no designer tools required)
@@ -50,12 +52,13 @@ Visual Studio 2019 also has CMake or 'Open Folder' support. This enables you to 
 
 Once you have the basic setup working, much more information can be found on Jason Turners C++ Weekly - Ep 208 - The Ultimate CMake / C++ Quick Start video https://www.youtube.com/watch?v=YbgH7yat-Jo
 
-In that video he mentions the C++ Starter project at https://github.com/lefticus/cpp_starter_project. The repo not only contains very ice examples of CMake features, but also .clang-format, .clang-tidy and .cmake-format.yaml examples. I recommened you check these out.
+In that video he mentions the C++ Starter project at https://github.com/lefticus/cpp_starter_project. The repo not only contains very nice examples of CMake features, but also .clang-format, .clang-tidy and .cmake-format.yaml examples. I recommened you check these out.
 
 
 ## Minimal requirements
 
-CopperSpice 1.5.x based projects require a compliant C++14 compiler, which in case of visual studio means 2017 15.8.1 or greater.
+CopperSpice 1.7.x based projects require a compliant C++17 compiler, which in case of visual studio means 2019 16.6.x or greater.
+CopperSpice 1.6.x or earlier based projects require a compliant C++14 compiler, which in case of visual studio means 2017 15.8.1 or greater.
 
 ```
 #if _MSC_VER < 1914
@@ -84,7 +87,7 @@ To work around this:
 
 * https://prereleases.llvm.org/win-snapshots/ pre-release builds of clang-format and LLVM can be found here 
 
-As of september 29 2012 I tested with the 'August 2012' pre-release:
+As of september 29 2020 I tested with the 'August 2020' pre-release:
 * https://prereleases.llvm.org/win-snapshots/ClangFormat-6923b0a7.vsix
 * https://prereleases.llvm.org/win-snapshots/clang-format-6923b0a7.exe
 * https://prereleases.llvm.org/win-snapshots/LLVM-12.0.0-6923b0a7-win64.exe
