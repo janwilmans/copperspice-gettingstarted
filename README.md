@@ -61,12 +61,10 @@ CopperSpice 1.7.x based projects require a compliant C++17 compiler, which in ca
 CopperSpice 1.6.x or earlier based projects require a compliant C++14 compiler, which in case of visual studio means 2017 15.8.1 or greater.
 
 ```
-#if _MSC_VER < 1914
-#    error "CopperSpice requires Visual Studio 2017 Version 15.8 or greater"
+#if _MSC_VER < 1926
+#    error "CopperSpice requires Visual Studio 2019 Version 16.6 or greater"
 #endif
 ```
-
-CopperSpice 1.6.x and beyond require C++17, however, since Visual Studio 2017 15.8 already completely supported it, the minimal version has not changed.
 
 ## Special note for VS2017 users
 There are two bugs you may encounter in all vs2017 versions: (they are fixed in vs2019 16.3.8)
