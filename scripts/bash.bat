@@ -28,7 +28,7 @@ if exist %ENT_BUILD% (
 ) 
 
 call %VCVARS% x64
-set NINJA_STATUS=[%e %f/%t @%r] 
+set NINJA_STATUS=[%%e %%f/%%t @%%r] 
 
 :: pushd "C:\project\internal-copperspice"
 "C:\Program Files\Git\bin\bash.exe"
