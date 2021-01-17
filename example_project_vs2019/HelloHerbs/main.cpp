@@ -21,34 +21,31 @@
 #include <chrono>
 using namespace std::chrono_literals;
 
-void test()
-{
-	QApplication app(__argc, __argv);
-	QMainWindow w;
-	w.resize(400, 300);
-	w.setWindowTitle("Hello Copperspice");
+void myMessageOutput(QtMsgType type, QStringView msg) {
+	return;
+	switch (type) {
+	case QtDebugMsg:
+		fprintf(stderr, "Debug: %s\n", msg.toLatin1().data());
+		break;
 
-	auto menubar = w.menuBar();
-	auto menu = menubar->addMenu("Test");
-	auto openAction = menu->addAction("Open browser");
-	QWebView* webview = new QWebView(&w);
-	w.setCentralWidget(webview);
-	webview->show();
-	w.show();
+	case QtWarningMsg:
+		fprintf(stderr, "Warning: %s\n", msg.toLatin1().data());
+		break;
 
-	QObject::connect(openAction, &QAction::triggered, &w, [webview]
-		{
-			QUrl url("file:///D:/project2/kitchensink/crash_cs.html");
-			webview->load(url);
-		});
+	case QtCriticalMsg:
+		fprintf(stderr, "Critical: %s\n", msg.toLatin1().data());
+		break;
 
-	app.exec();
+	case QtFatalMsg:
+		fprintf(stderr, "Fatal: %s\n", msg.toLatin1().data());
+		abort();
+	}
 }
+
 
 int main(int argc, char *argv[])
 {
-	test();
-	/*
+	qInstallMsgHandler(myMessageOutput);
 	QApplication app(argc, argv);
 	QMainWindow mainWindow;
 
@@ -74,6 +71,5 @@ int main(int argc, char *argv[])
 	QString qs("Hello copperspice\n");
 	std::cout << qs.toStdString();
 	return app.exec();
-	*/
 	return 0;
 }
