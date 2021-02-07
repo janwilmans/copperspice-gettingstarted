@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="QObject">
+    <DisplayString> { this } </DisplayString>
+  </Type>
+  <Type Name="QWidget">
+    <DisplayString> Objectname: {m_objectName} </DisplayString>
+  </Type>
+  <Type Name="QString8">
+    <DisplayString>Q8[{ (char*)(&amp;m_string[0]),s8} size={m_string._Mypair._Myval2._Mylast - m_string._Mypair._Myval2._Myfirst}]</DisplayString>
+    <StringView>(char*)(&amp;m_string[0]),s8</StringView>
+  </Type>
+  <Type Name="QMenu">
+    <DisplayString> { d-&gt;actions }</DisplayString>
+  </Type>
+</AutoVisualizer>

@@ -8,8 +8,13 @@ set CMAKE_PREFIX_PATH=D:\project2\copperspice-msvc\out\install\x64-Release\cmake
 set SRC=%cd%
 mkdir x64
 pushd x64
-:: remember -DCMAKE_BUILD_TYPE=RelWithDebInfo has no effect on "Visual Studio" multi-config generatators
-cmake -G "Visual Studio 15 2017" -A x64 -T v141,host=x64 %SRC%
+
+:: CMAKE_BUILD_TYPE options like -DCMAKE_BUILD_TYPE=RelWithDebInfo have no effect on "Visual Studio" or any other multi-config generatators
+cmake -G "Visual Studio 15 2017 Win64" -T v141,host=x64 %SRC%
+
+:: note: the generator syntax for vs2019 is different:
+:: cmake -G "Visual Studio 15 2019" -A x64 -T v142,host=x64 %SRC%
+
 popd
 
 @echo off

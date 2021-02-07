@@ -27,7 +27,7 @@ copperspice-msvc\x64\debug\install\bin                 -> copperspice-gettingsta
 copperspice-msvc\x64\debug\install\lib                 -> copperspice-gettingstarted\nuget\copperspice.1.7.0\build\native\copperspice\debug\lib
 
 The PDB files are not packaged because they are usually not required and will increase the nuget package size from 100Mb to ~1.1Gb
-To copperspice itself, build it from source code.
+To debug copperspice itself, build it from source code.
 
 7) Edit CopperSpiceBinaryTargets.cmake and CopperSpiceLibraryTargets.cmake to take into account that both debug and release binaries are destributed in the same Nuget package.
 

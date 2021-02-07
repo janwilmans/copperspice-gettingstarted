@@ -26,20 +26,19 @@ if exist %ENT_BUILD% (
 :: NOTICE: msvc binaries build in a debug configuration are ABI INcompatible with the release configuration
 ::         so it is important to have everything built with the same configuration build type.
 
-set CMAKE_PREFIX_PATH=D:\project2\copperspice-msvc\out\install\x64-Release\cmake\CopperSpice
+set CS_PATH=C:\project\copperspice-msvc\x64\debug\install\cmake\CopperSpice
 
 rd /s /q x64
 mkdir x64
 mkdir x64\release
 pushd x64\release
-cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_IGNORE_PATH="C:/MinGW/bin"  -G Ninja %SRC%
+cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_IGNORE_PATH="C:/MinGW/bin" -DCMAKE_PREFIX_PATH=%CS_PATH% -G Ninja %SRC%
 popd
 
-set CMAKE_PREFIX_PATH=D:\project2\copperspice-msvc\out\install\x64-Debug\cmake\CopperSpice
 
 mkdir x64\debug
 pushd x64\debug
-cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_IGNORE_PATH="C:/MinGW/bin" -G Ninja %SRC%
+cmake -DCMAKE_INSTALL_PREFIX=install -DMSVC_TOOLSET_VERSION=142 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_IGNORE_PATH="C:/MinGW/bin" -DCMAKE_PREFIX_PATH=%CS_PATH% -G Ninja %SRC%
 popd
 
 @echo off

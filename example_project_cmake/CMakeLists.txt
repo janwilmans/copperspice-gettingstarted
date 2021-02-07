@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.8)
 
+# edit this to match your installation path
+if(NOT CMAKE_PREFIX_PATH)
+  set(CMAKE_PREFIX_PATH "C:/project/copperspice-msvc/x64/debug/install/cmake/CopperSpice")
+endif()
+
 project(example_project_cmake)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -9,7 +14,7 @@ find_package(CopperSpice REQUIRED)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
-  message("No build type specified, defaulting to Debug (no optimizations, include debug symbols), use -DCMAKE_BUILD_TYPE=RelWithDebInfo or =Release to build a release)")
+  message("No build type specified, defaulting to Debug (no optimizations, include debug symbols), use -DCMAKE_BUILD_TYPE=Release to build in release configuration)")
 endif()
 
 if(MSVC)

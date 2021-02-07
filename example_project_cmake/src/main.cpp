@@ -34,6 +34,11 @@ int __stdcall WinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPST
 	mainWindow.resize(400, 300);
 	mainWindow.setWindowTitle("Hello Copperspice");
 
+	QList<QString> list;
+	list.append("quite");
+	list.append("quiter");
+	list.append(QString::fromUtf8("パーソナル 😱 コンピューター 😱"));
+
 	auto menubar = mainWindow.menuBar();
 	auto menu = menubar->addMenu("Options");
 	auto flashAction = menu->addAction("Flash");
