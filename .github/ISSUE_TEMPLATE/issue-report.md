@@ -9,15 +9,15 @@ assignees: ''
 
 Used target OS:
 
-[ ] Debian 10 (Buster)
-[ ] Fedora 31
-[ ] Centos 8
-[ ] Ubuntu 20.04
-[ ] Arch Linux
-[ ] FreeBSD 12.0
-[ ] Windows 10 using gcc 7.3.0 (MinGW)
-[ ] Windows 10 using MSVC 2019 16.x
-[ ] Mac OS X 10.14 using Apple clang 11.0.0
+- [ ] Debian 10 (Buster)
+- [ ] Fedora 31
+- [ ] Centos 8
+- [ ] Ubuntu 20.04
+- [ ] Arch Linux
+- [ ] FreeBSD 12.0
+- [ ] Windows 10 using gcc 7.3.0 (MinGW)
+- [ ] Windows 10 using MSVC 2019 16.x
+- [ ] Mac OS X 10.14 using Apple clang 11.0.0
 
 If your platform is not listed check the officially supported platforms:
 https://www.copperspice.com/docs/cs_overview/supported-platforms.html
