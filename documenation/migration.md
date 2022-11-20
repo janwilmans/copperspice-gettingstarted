@@ -83,6 +83,6 @@ common errors you will encounter are:
 - QT_TRANSLATE_NOOP -> cs_mark_tr
 - QT_TRANSLATE_NOOP3 -> cs_mark_tr
 
-
-The amount of compilation error should be small since most of them were fixed during the preparation phase already.
+The amount of compilation errors should be small since most of them were fixed during the preparation phase already.
+Keep in mind that the [Migration Notes](https://www.copperspice.com/docs/cs_overview/cs-migration.html) are very detailed and have been improved several times when converting different project. Reading them top-to-bottom before you start can actually save you quite a bit of time! (I did not the first time and regretted it later ;)
 
