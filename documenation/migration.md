@@ -28,6 +28,21 @@ Note: in my own 1Mloc code base I have still not completed these steps, I have o
 
 # Preparation Phase
 
+## make sure all your source code files are UTF-8 encoded.
+
+As of 2020, as far as I'm aware all major compilers (gcc10, VS2019 and Clang??) support reading source code files in UTF-8 either by default or by specifying a commandline option. GCC and Clang do this by default and VS2019 has a `/utf-8` option.
+
+In many cases source files may only contains low-ascii characters (below 128), to find the exceptions:
+
+`$ find . -name "*.h" | xargs grep -P "[\x80-\xFF]"`
+`$ find . -name "*.cpp" | xargs grep -P "[\x80-\xFF]"`
+
+The above commands can be helpfull. The files this finds should be checked to be 'correctly UTF-8 encoded', which right now, I'm not sure how to do, except, relying on the fact that if I edit the files with my editor and save it as 'UTF-8', it will actually correctly do that ;)
+
+## get rid of UTF-16 strings
+
+Although this step can be a big one if you externally rely on UTF-16, for me it was actually straitforward, the only UTF-16 string I was using were internal to QString. So for me the steps to move away from UTF-16 were non-existant.
+
 ## get rid of forward incompatable function calls
 
 These functions are not 'essential', most of the time there is a easy way to rewrite the code to not use these functions.
