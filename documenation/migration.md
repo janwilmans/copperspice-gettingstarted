@@ -25,7 +25,7 @@ Note: in my own 1Mloc code base I have still not completed these steps, I have o
 These functions are not 'essential', most of the time there is a easy way to rewrite the code to not use these functions.
 And in my experience the code is always better afterwards. I consider the use of these functions 'code smells', even in the existing code.
 
-- see https://www.copperspice.com/docs/cs_api/class_qstring8.html#changes-qstring for a complete list of function you should not be using BUT usually mass renaming `toAscii()` to `toLatin1()', `fromAscii()` to `fromLatin()` and `isNull`() to `isEmpty()` covers a large part of the needed changes.
+- see https://www.copperspice.com/docs/cs_api/class_qstring8.html#changes-qstring for a complete list of function you should not be using BUT usually mass renaming `toAscii()` to `toLatin1()', `fromAscii()` to `fromLatin()` and `isNull()` to `isEmpty()` covers a large part of the needed changes.
 - 
 
 
