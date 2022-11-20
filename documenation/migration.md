@@ -1,5 +1,7 @@
 # Migration to CopperSpice from Qt
 
+Note: This document is not the official advice of the CopperSpice project. It is provided based on my personal experience migrating to CopperSpice
+
 Suppose you would like to try CopperSpice but you don't know if you're ready to migrate completely, how can you test it on your code base?
 There are a number of differences that were either by design or by organic growth that exist between CopperSpice and Qt.
 
@@ -9,7 +11,7 @@ My main goal for this document is to list steps you can take to make your code b
 
 These steps are not required, however in my opinion it does improve code quality to do so.
 
-- Enable QT macros to disallow implicit conversions `QT_NO_CAST_TO_ASCII` and `QT_NO_CAST_FROM_ASCII`
+- Enable Qt macros to disallow implicit conversions `QT_NO_CAST_TO_ASCII` and `QT_NO_CAST_FROM_ASCII`
 
 These macros has been available since at least Qt4, the effect of them is that all implicit string literal conversion is turned off.
 
