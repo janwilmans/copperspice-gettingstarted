@@ -41,7 +41,7 @@ The above commands can be helpfull. The files this finds should be checked to be
 
 ## get rid of UTF-16 strings
 
-Although this step can be a big one if you externally rely on UTF-16, for me it was actually straitforward, the only UTF-16 string I was using were internal to QString. So for me the steps to move away from UTF-16 were non-existant.
+Although this step can be a big one if you externally rely on UTF-16, for me it was actually straitforward, the only UTF-16 strings I was using were internal to QString. So for me the steps to move away from UTF-16 were non-existant.
 
 ## get rid of forward incompatable function calls
 
