@@ -63,8 +63,8 @@ You can follow those instructions now, but a lot of them are not required anymor
 common errors you will encounter are:
 
 
-- conversions from `const char *` to QString (if not already solved in the optional step)
-- the `? "" : "" ` pattern to create a QString
+- conversions from `const char *` to `QString` (if not already solved in the optional step)
+- the `? "" : "" ` pattern to create a `QString`
 - QT_TRANSLATE_NOOP -> cs_mark_tr
 - QT_TRANSLATE_NOOP3 -> cs_mark_tr
 
