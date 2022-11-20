@@ -3,7 +3,7 @@
 Suppose you would like to try CopperSpice but you don't know if you're ready to migrate completely, how can you test it on your code base?
 There are a number of differences that were either by design or by organic growth that exist between CopperSpice and Qt.
 
-My main for this document is to list steps you can take to make your code base easier to **migrate** and to **improve** it's code quality in the process.
+My main goal for this document is to list steps you can take to make your code base easier to **migrate** and to **improve** it's code quality in the process.
 
 ## optional steps
 
