@@ -19,8 +19,9 @@ However CopperSpice is stricter about string conversions and some of them aren't
 Converting all these cases can be a daunting task because the happen all the time. However, in my opinion it does improve code quality to do so.
 
 to basically means:
-- nullptr is not a viable type to convert to QString
+- `NULL` or `nullptr` are a viable types to convert to QString
 - "" is not a viable type to convert to QString
+- `const char *` is not a viable type to convert to QString
 - QString::fromUtf8("somestring") should be using whenever you create a QString from a string-literal
 
 Note: in my own 1Mloc code base I have still not completed these steps, I have only converted cases that are not allowed in CopperSpice anymore (which you will find during later steps automatically anyway).
@@ -34,10 +35,16 @@ And in my experience the code is always better afterwards. I consider the use of
 
 # Preparation Phase
 
+- Qt::CTRL -> Qt::ControlModifier
+- Create a function QStringFormat("{}", ...) that assumes UTF-8 input and formats it using {fmt}. Use this function to replace all .arg() and .args() formatted QStrings.
+- Create a function `bool QStringToInteger<int>(&var)` to replace `QString::toInt(&var)` cases
+- Create a function `T QStringToInteger<int>(var)` to replace `int QString::toInt()` cases
+- replace QRegExp with std::regex or something better/faster if required. (can be replaced with QRegularExpression, but usage is better avoided completely)
 
 # Qt4 -> Qt5 migration 
 
-Most if not all of the Qt5 incompatibilities are fixed by the preparation phase by now, so switching to from Qt4 to Qt5 should now be possible by updating the build files only.
+- Most if not all of the Qt5 incompatibilities are fixed by the preparation phase by now, so switching to from Qt4 to Qt5 should now be possible by updating the build files only.
+- QtWebKit is nolonger supported in Qt5 but it is still available in CopperSpice
 
 # CopperSpice specific migration:
 
@@ -49,6 +56,15 @@ You can follow those instructions now, but a lot of them are not required anymor
 - modify your build files 
 - run [Peppermill](https://www.copperspice.com/documentation-peppermill.html) (the CopperSpice migration tool) to transform all QT_SLOT to CS_SLOT/CS_SIGNAL macros
 - fix compilation errors as needed.
+
+common errors you will encounter are:
+
+
+- conversions from `const char *` to QString (if not already solved in the optional step)
+- the `? "" : "" ` pattern to create a QString
+- QT_TRANSLATE_NOOP -> cs_mark_tr
+- QT_TRANSLATE_NOOP3 -> cs_mark_tr
+
 
 The amount of compilation error should be small since most of them were fixed during the preparation phase already.
 
