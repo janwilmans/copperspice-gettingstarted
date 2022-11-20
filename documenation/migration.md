@@ -1,6 +1,6 @@
 # Migration to CopperSpice from Qt
 
-Note: This document is not the official advice of the CopperSpice project. It is provided based on my personal experience migrating to CopperSpice
+> Notice: This document is not the official advice of the CopperSpice project. It is provided based on my personal experience migrating to CopperSpice
 
 Suppose you would like to try CopperSpice but you don't know if you're ready to migrate completely, how can you test it on your code base?
 There are a number of differences that were either by design or by organic growth that exist between CopperSpice and Qt.
