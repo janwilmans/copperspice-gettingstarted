@@ -1,13 +1,13 @@
-# Migration to CopperSpice from Qt
+# Migration from Qt to CopperSpice
 
 > Notice: This document is not the official advice of the CopperSpice project. It is provided based on my personal experience migrating to CopperSpice
 
 Suppose you would like to try CopperSpice but you don't know if you're ready to migrate completely, how can you test it on your code base?
 There are a number of differences that were either by design or by organic growth that exist between CopperSpice and Qt.
 
-My main goal for this document is to list steps you can take to make your code base easier to **migrate** and to **improve** it's code quality in the process.
+My main goal for this document is to list steps you can take to make your code base **easier** to migrate and to **improve** it's code quality in the process.
 
-## optional steps
+## Optional steps
 
 These steps are not required, however in my opinion it does improve code quality to do so.
 
@@ -18,13 +18,14 @@ These macros has been available since at least Qt4, the effect of them is that a
 Since both CopperSpice and Qt5 allow **some** conversion of string literals, with the assuption that their are UTF-8 encoded, you strictly speaking can leave them in.
 However CopperSpice is stricter about string conversions and some of them aren't allowed anymore, so if you skip this step, you will have a bit of work to do in later steps.
 
-Converting all these cases can be a daunting task because the happen all the time. However, in my opinion it does improve code quality to do so.
+Converting all these cases can be a daunting task because the happen all the time. However, I think being explicit in your string conversions is a good practice in general.
 
-to basically means:
-- `NULL` or `nullptr` are a viable types to convert to QString
-- "" is not a viable type to convert to QString
+It basically means:
+
+- `NULL` or `nullptr` are a nolonger viable types to convert to QString
+- "" (or any string literal) is not a viable type to convert to QString
 - `const char *` is not a viable type to convert to QString
-- QString::fromUtf8("somestring") should be using whenever you create a QString from a string-literal
+- QString::fromUtf8("somestring") should be used whenever you create a QString from a string-literal that is embedded in source code.
 
 Note: in my own 1Mloc code base I have still not completed these steps, I have only converted cases that are not allowed in CopperSpice anymore (which you will find during later steps automatically anyway).
 
@@ -34,12 +35,12 @@ Note: in my own 1Mloc code base I have still not completed these steps, I have o
 
 As of 2020, as far as I'm aware all major compilers (gcc10, VS2019 and Clang??) support reading source code files in UTF-8 either by default or by specifying a commandline option. GCC and Clang do this by default and VS2019 has a `/utf-8` option.
 
-In many cases source files may only contains low-ascii characters (below 128), to find the exceptions:
+In many cases source files may only contains low-ASCII characters (below 128), to find the exceptions:
 
 `$ find . -name "*.h" | xargs grep -P "[\x80-\xFF]"`
 `$ find . -name "*.cpp" | xargs grep -P "[\x80-\xFF]"`
 
-The above commands can be helpfull. The files this finds should be checked to be 'correctly UTF-8 encoded', which right now, I'm not sure how to do, except, relying on the fact that if I edit the files with my editor and save it as 'UTF-8', it will actually correctly do that ;)
+The above commands can be helpful; the files this finds are not necessarily problematic but should be checked to be 'correctly UTF-8 encoded', which right now, I'm not sure how to do except by relying on the fact that if I edit the files with my editor and save it as 'UTF-8', it will actually correctly do that ;)
 
 ## get rid of UTF-16 strings
 
