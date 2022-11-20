@@ -44,9 +44,9 @@ And in my experience the code is always better afterwards. I consider the use of
 - Create a function `T QStringToInteger<int>(var)` to replace `int QString::toInt()` cases
 - replace QRegExp with std::regex or something better/faster if required. (can be replaced with QRegularExpression, but usage is better avoided completely)
 
-# Qt4 -> Qt5 migration 
+# Migration
 
-- Most if not all of the Qt5 incompatibilities are fixed by the preparation phase by now, so switching to from Qt4 to Qt5 should now be possible by updating the build files only.
+- Most if not all of the Qt5 incompatibilities were fixed in the preparation phase by now; so switching to from Qt4 to Qt5 should now be possible by updating the build files only.
 - QtWebKit is nolonger supported in Qt5 but it is still available in CopperSpice
 
 # CopperSpice specific migration:
