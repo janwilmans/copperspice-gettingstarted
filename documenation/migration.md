@@ -72,20 +72,21 @@ And in my experience the code is always better afterwards. I consider the use of
 The CopperSpice [documentation](https://www.copperspice.com/documentation.html) has migration instructions.
 Follow: copperspice.com -> Documentation -> CopperSpice -> Installing CopperSpice -> [Migration to CopperSpice](https://www.copperspice.com/docs/cs_overview/migration.html) to the [Migration Notes](https://www.copperspice.com/docs/cs_overview/cs-migration.html)
 
-You can follow those instructions now, but a lot of them are not required anymore, because we already to care of them in the prepartion phase.
+You can follow those instructions now, which are on a high level:
 
 - modify your build files 
 - run [Peppermill](https://www.copperspice.com/documentation-peppermill.html) (the CopperSpice migration tool) to transform all QT_SLOT to CS_SLOT/CS_SIGNAL macros
-- fix compilation errors as needed.
+- fix compilation errors as needed
 
-common errors you will encounter are:
-
+Common errors you will encounter are:
 
 - conversions from `const char *` to `QString` (if not already solved in the optional step)
 - the `? "" : "" ` pattern to create a `QString`
 - QT_TRANSLATE_NOOP -> cs_mark_tr
 - QT_TRANSLATE_NOOP3 -> cs_mark_tr
 
-The amount of compilation errors should be small since most of them were fixed during the preparation phase already.
+The amount of compilation errors should be relatively few since (hopefully) most of them were already fixed during the preparation phase.
 Keep in mind that the [Migration Notes](https://www.copperspice.com/docs/cs_overview/cs-migration.html) are very detailed and have been improved several times when converting different project. Reading them top-to-bottom before you start can actually save you quite a bit of time! (I did not the first time and regretted it later ;)
+
+--- That is it fow now, happy coding!
 
