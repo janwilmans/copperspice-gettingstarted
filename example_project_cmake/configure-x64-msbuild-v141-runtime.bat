@@ -12,8 +12,10 @@ pushd x64
 :: CMAKE_BUILD_TYPE options like -DCMAKE_BUILD_TYPE=RelWithDebInfo have no effect on "Visual Studio" or any other multi-config generatators
 cmake -G "Visual Studio 15 2017 Win64" -T v141,host=x64 %SRC%
 
-:: note: the generator syntax for vs2019 is different:
-:: cmake -G "Visual Studio 15 2019" -A x64 -T v142,host=x64 %SRC%
+:: note: the generator syntax for vs2019 and later is different:
+:: cmake -G "Visual Studio 16 2019" -A x64 -T v142,host=x64 %SRC%
+:: cmake -G "Visual Studio 17 2022" -A x64 -T v142,host=x64 %SRC%
+
 
 popd
 

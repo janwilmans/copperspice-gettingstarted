@@ -1,8 +1,23 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.16.0 FATAL_ERROR)
 
-# edit this to match your installation path
-if(NOT CMAKE_PREFIX_PATH)
-  set(CMAKE_PREFIX_PATH "C:/project/copperspice-msvc/x64/debug/install/cmake/CopperSpice")
+include(FetchContent)
+
+Set(NUGET_PACKAGE_PATH ${CMAKE_SOURCE_DIR}/packages)
+
+FetchContent_Declare(copperspice_nuget
+   DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+   SOURCE_DIR ${NUGET_PACKAGE_PATH}/
+   URL https://www.nuget.org/api/v2/package/Copperspice/1.8.2
+   EXCLUDE_FROM_ALL
+)
+FetchContent_MakeAvailable(copperspice_nuget)
+
+
+if(CMAKE_PREFIX_PATH)
+	message("Getting CMAKE_PREFIX_PATH as ${CMAKE_PREFIX_PATH}")
+else()
+  set(CMAKE_PREFIX_PATH "${NUGET_PACKAGE_PATH}/build/native/cmake/CopperSpice")
+  message("Setting CMAKE_PREFIX_PATH to ${CMAKE_PREFIX_PATH}")
 endif()
 
 project(example_project_cmake)
@@ -11,6 +26,14 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(CopperSpice REQUIRED)
+
+if (${COPPERSPICE_VERSION} VERSION_LESS "1.8.0")
+   message("")
+   message("** Error: Minimum required version for CopperSpice is 1.8.0")
+
+   message("")
+   message(FATAL_ERROR)
+endif()
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Debug)
