@@ -33,6 +33,12 @@ set(CMAKE_INSTALL_RPATH "\$ORIGIN")
 
 add_subdirectory(strings)
 
+if (${CMAKE_SIZEOF_VOID_P} EQUAL 4)
+   set(TARGETBITS 32)
+else()
+   set(TARGETBITS 64)
+endif()
+
 message("")
 message("Copperspice is being consumed from:    ${Copperspice_DIR} ")
 message("${PROJECT_NAME} configured to run on:  ${CMAKE_SYSTEM_NAME} ${TARGETBITS} bit, ${CMAKE_BUILD_TYPE} Mode")
