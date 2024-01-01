@@ -5,6 +5,10 @@ COPPERSPICE_RESOURCES(
    ${CMAKE_CURRENT_SOURCE_DIR}/mainwindow.ui
 )
 
+add_library(cs_interface STATIC
+  extra.cpp
+)
+
 add_executable(${PROJECT_NAME}
   mainwindow.ui
   main.cpp
@@ -17,6 +21,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} PRIVATE project::warnings_options project::warnings_supress
   CopperSpice::CsCore
   CopperSpice::CsGui
+  cs_interface
 )
 
 if(MSVC)

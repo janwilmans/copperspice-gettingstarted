@@ -35,7 +35,7 @@ using namespace std::chrono_literals;
 
 int main(int argc, char* argv[])
 {
-	QApplication app(argc, argv);
+ 	QApplication app(argc, argv);
 	QMainWindow mainWindow;
 
 	mainWindow.resize(400, 300);

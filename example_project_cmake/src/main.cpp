@@ -1,10 +1,5 @@
 #include <iostream>
 
-#ifdef _MSC_VER
-#pragma warning( push )
-#pragma warning(disable : 4251 4244 4250 4275)
-#endif
-
 #include <QString>
 #include <QWindow>
 #include <QApplication>
@@ -13,19 +8,27 @@
 
 #include "ui_mainwindow.h"
 
-#ifdef _MSC_VER
-#pragma warning( pop )
-#endif
+#include "extra.h"
 
 #include <thread>
 #include <chrono>
-#include <atlstr.h>
+#include <cstdint> 
 
 using namespace std::chrono_literals;
 
-int __stdcall WinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPSTR /*lpCmdLine*/, int /*nShowCmd*/)
+#ifdef _MSC_VER
+	#include <atlstr.h>
+
+	int main(int argc, char* argv[]);
+	int APIENTRY WinMain(HINSTANCE, HINSTANCE, PSTR, INT)
+	{
+		return main(__argc, __argv);
+	}
+#endif
+
+int main(int argc, char* argv[])
 {
-	QApplication app(__argc, __argv);
+ 	QApplication app(argc, argv);
 
 	QMainWindow mainWindow;
 	Ui::MainWindow window;
@@ -60,9 +63,7 @@ int __stdcall WinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPST
 	return app.exec();
 }
 
-// test warnings
-
-uint32_t example(int64_t value2)
+void example_linkage()
 {
-	return value2;
+	example(42);
 }
