@@ -59,3 +59,10 @@ int __stdcall WinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/, LPST
 	std::cout << qs.toStdString();
 	return app.exec();
 }
+
+// test warnings
+
+uint32_t example(int64_t value2)
+{
+	return value2;
+}

@@ -22,7 +22,7 @@ if exist %ENT_BUILD% (
 ) 
 
 :: I give two examples here, one for a release configuration and one with a debug configuration build type
-:: in practive, you will want to use only one of the two at one time.
+:: in practice, you will want to use only one of the two at one time.
 :: NOTICE: msvc binaries build in a debug configuration are ABI INcompatible with the release configuration
 ::         so it is important to have everything built with the same configuration build type.
 

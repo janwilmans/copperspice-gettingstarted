@@ -14,7 +14,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
+target_link_libraries(${PROJECT_NAME} PRIVATE project::warnings_options project::warnings_supress
   CopperSpice::CsCore
   CopperSpice::CsGui
 )
@@ -30,5 +30,4 @@ install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX})
 # Copy the libraries and plugins necessary for our application to our install path.
 cs_copy_library(CsCore)
 cs_copy_library(CsGui)
-
 cs_copy_plugins(CsGui)
