@@ -17,7 +17,7 @@ endif()
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(CopperSpice REQUIRED)
+find_package(CopperSpice 1.8.2 REQUIRED)
 
 if (${COPPERSPICE_VERSION} VERSION_LESS "1.8.0")
    message(FATAL_ERROR "** Error: Minimum required version for CopperSpice is 1.8.0")
