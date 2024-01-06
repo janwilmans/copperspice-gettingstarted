@@ -47,7 +47,6 @@ else()
   set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-undefined")
   set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} -Wl,--no-undefined")
 
-  add_library(define_project_warning_options INTERFACE)
   target_compile_options(define_project_warning_options INTERFACE
     -Wall
     -Wextra
@@ -67,9 +66,9 @@ else()
     -Wunused-variable
     -Wunused-parameter
     -Wvla
+    # test -Wreturn-type
     # Warnings that are not allowed in C compilation units
     $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
     $<$<COMPILE_LANGUAGE:CXX>:-Woverloaded-virtual>
   )
-  add_library(project::warnings_options ALIAS define_project_warning_options)
 endif()
