@@ -21,7 +21,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} PRIVATE
   project::warnings_options
   project::warning_suppressions
-  project::project_compile_options
+  project::project_options
   CopperSpice::CsCore
   CopperSpice::CsGui
   cs_interface

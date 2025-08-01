@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.30 FATAL_ERROR)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -33,35 +33,40 @@ find_package(CopperSpice REQUIRED)
 
 include(cmake/CMakeLists.warnings.cmake)
 
+add_library(define_project_options INTERFACE)
+
 if(BUILD_WITH_ASAN)
-    add_compile_options(-fsanitize=address)
-    add_link_options(-fsanitize=address)
+    target_compile_options(define_project_options INTERFACE -fsanitize=address)
+    target_link_options(define_project_options INTERFACE -fsanitize=address)
     message("-- build with ASAN enabled")
 endif()
 
 if(BUILD_WITH_UBSAN)
-    add_compile_options(-fsanitize=undefined)
-    add_link_options(-fsanitize=undefined)
+    target_compile_options(define_project_options INTERFACE -fsanitize=undefined)
+    target_link_options(define_project_options INTERFACE -fsanitize=undefined)
     message("-- build with UBSAN enabled")
 endif()
 
 if(BUILD_WITH_ASAN OR BUILD_WITH_UBSAN)
-   add_compile_options(-fno-var-tracking-assignments)
-   #add_compile_options(-mcmodel=large)
-   #add_compile_options(--param=max-vartrack-size=2500000)
-   #add_link_options(-mcmodel=large)
-   #add_compile_options(-Wl,--image-base -Wl,0x10000000)
+   target_compile_options(define_project_options INTERFACE -fno-var-tracking-assignments)
+   # target_compile_options(define_project_options INTERFACE -mcmodel=large)
+   # target_compile_options(define_project_options INTERFACE --param=max-vartrack-size=2500000)
+   #target_link_options(define_project_options INTERFACE -mcmodel=large)
+   # target_compile_options(define_project_options INTERFACE -Wl,--image-base -Wl,0x10000000)
 endif()
 
 # Setting the rpath to '$ORIGIN' ensures our application looks for the
 # CopperSpice libraries and plugins in its own directory first.
 set(CMAKE_INSTALL_RPATH "\$ORIGIN")
 
-target_compile_options(define_project_compile_options INTERFACE /utf-8)
+target_compile_options(define_project_options INTERFACE /utf-8)
+
+# here the 'project::' scoped targets are available, all project should only depend on these as needed through its target_link_libraries
+# doing so will automatically have them add their compiler and linker option as defined above.
 
 add_library(project::warnings_options ALIAS define_project_warning_options)
 add_library(project::warning_suppressions ALIAS define_project_warning_suppressions)
-add_library(project::project_compile_options ALIAS define_project_compile_options)
+add_library(project::project_options ALIAS define_project_options)
 
 add_subdirectory(src)
 

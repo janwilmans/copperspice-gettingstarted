@@ -2,10 +2,6 @@
 *.vcxproj.user
 packages/
 x64/
-x86/
-*.nupkg
-placeholder*
-out/
 nuget/copperspice/build/native
 .vscode
 build/

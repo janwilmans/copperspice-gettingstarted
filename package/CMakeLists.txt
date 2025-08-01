@@ -1,4 +1,8 @@
-cmake_minimum_required(VERSION 3.16.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.30.0 FATAL_ERROR)
+
+# 3.30 is the minimal version for NUGET REAMDME _and_ CPACK_NUGET_PACKAGE_REPOSITORY_URL support
+# https://gitlab.kitware.com/cmake/cmake/-/merge_requests/9139/
+# https://cmake.org/cmake/help/latest/cpack_gen/nuget.html#variable:CPACK_NUGET_%3CcompName%3E_REPOSITORY_URL
 
 project(copperspice)
 
@@ -51,7 +55,7 @@ file(SIZE ${CPACK_PACKAGE_DESCRIPTION_FILE} description_size)
 
 # Check if the file size is at most 4000 bytes (Required )
 if(description_size GREATER 4000)
-    message(FATAL_ERROR "The description in '${CPACK_PACKAGE_DESCRIPTION_FILE}' can be at most 4000 characaters in size.")
+    message(FATAL_ERROR "The description in '${CPACK_PACKAGE_DESCRIPTION_FILE}' can be at most 4000 characters in size.")
 endif()
 
 # Find nuget.exe
@@ -79,6 +83,10 @@ set(CPACK_NUGET_PACKAGE_RELEASE_NOTES "These are notes specific for this version
 
 # the license file name refers to a file/path _inside_ the resulting package
 set(CPACK_NUGET_PACKAGE_LICENSE_FILE_NAME "LICENSE.md")
+set(CPACK_NUGET_PACKAGE_README "README.md")
+
+set(CPACK_NUGET_PACKAGE_REPOSITORY_URL "https://nuget.org/api/v2/package")
+set(CPACK_NUGET_PACKAGE_REPOSITORY_TYPE "nuget")
 
 install(DIRECTORY ${CS_ROOT_DIRECTORY}/release/cmake DESTINATION build/native/release)
 install(DIRECTORY ${CS_ROOT_DIRECTORY}/release/include DESTINATION build/native/release)
@@ -88,15 +96,12 @@ install(DIRECTORY ${CS_ROOT_DIRECTORY}/debug/cmake DESTINATION build/native/debu
 install(DIRECTORY ${CS_ROOT_DIRECTORY}/debug/include DESTINATION build/native/debug)
 install(DIRECTORY ${CS_ROOT_DIRECTORY}/debug/bin DESTINATION build/native/debug)
 install(DIRECTORY ${CS_ROOT_DIRECTORY}/debug/lib DESTINATION build/native/debug)
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/package/ DESTINATION .)
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/package_template/ DESTINATION .)
 
 if (NUGET_DOWNLOAD)
     # add nuget.exe location to PATH at install time, the "\$ENV" causes delayed expansion inside the 'install' step
     install(CODE "set(ENV{PATH} \"${CMAKE_CURRENT_BINARY_DIR}/download/nuget/tools/;\$ENV{PATH}\")")
 endif()
-
-# eloborate workaround for missing <readme> element in nuspec file
-set(CPACK_POST_BUILD_SCRIPTS "${CMAKE_SOURCE_DIR}/post_cpack.cmake")
 
 # this include needs to be after all install() rules
 include(CPack)
