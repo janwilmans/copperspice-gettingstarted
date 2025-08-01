@@ -22,6 +22,7 @@ if (NUGET_DOWNLOAD)
     FetchContent_MakeAvailable(nuget_commandline)
 endif()
 
+# install both debug and release builds of copperspice side-by-side as c:\cs\release and c:\cs\debug
 set(CS_ROOT_DIRECTORY "c:/cs")
 
 # include() doesn't introduction a scope

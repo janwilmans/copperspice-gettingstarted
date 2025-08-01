@@ -30,6 +30,7 @@ endif()
 enable_testing()
 
 find_package(CopperSpice REQUIRED)
+message(STATUS "CopperSpice_DIR: ${CopperSpice_DIR}")
 
 include(cmake/CMakeLists.warnings.cmake)
 
@@ -76,8 +77,10 @@ else()
    set(TARGETBITS 64)
 endif()
 
-message("")
-message("${PROJECT_NAME} configured to run on:  ${CMAKE_SYSTEM_NAME} ${TARGETBITS} bit, ${CMAKE_BUILD_TYPE} Mode")
-message("${PROJECT_NAME} will be built in:      ${CMAKE_BINARY_DIR}")
-message("${PROJECT_NAME} will be installed in:  ${CMAKE_INSTALL_PREFIX}")
-message("\n")
+message(STATUS "")
+message(STATUS "Using CopperSpice from: ${CopperSpice_DIR}")
+message(STATUS "")
+message(STATUS "${PROJECT_NAME} configured to run on:  ${CMAKE_SYSTEM_NAME} ${TARGETBITS} bit, ${CMAKE_BUILD_TYPE} Mode")
+message(STATUS "${PROJECT_NAME} will be built in:      ${CMAKE_BINARY_DIR}")
+message(STATUS "${PROJECT_NAME} will be installed in:  ${CMAKE_INSTALL_PREFIX}")
+message(STATUS "\n")
