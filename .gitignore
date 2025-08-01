@@ -8,4 +8,4 @@ placeholder*
 out/
 nuget/copperspice/build/native
 .vscode
-
+build/

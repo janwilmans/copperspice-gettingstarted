@@ -1,18 +1,10 @@
-1) git clone https://github.com/janwilmans/copperspice-msvc
-
-merge https://github.com/copperspice/copperspice (both the commits and the tags)
-
-1) choose whether to build against v140 or v141 (both require using vs2019 because of cmake version)
-2) to build the debug and release version, first run configure-x64-v142-runtime.bat (see https://github.com/janwilmans/copperspice-msvc)
-3) run 'ninja install' in both x64\debug and x64\release using the "x64 Native Tools Command Prompt for VS 2019"
-
-x64\debug\install and x64\release\install now contain all the binaries required for the nuget package except for the .pdb files
-
-4) take copperspice-gettingstarted\nuget\copperspice.x.x.x\Copperspice.nuspec, copy the whole directory and edit it to match the release version
+1) download the debug and release version of the MSVC installation from https://download.copperspice.com/copperspice/binary/cs-2.0/
+2) install both side-by-side as c:\cs\release and c:\cs\debug
+3) go to copperspice-gettingstarted\nuget\copperspice.x.x.x\Copperspice.nuspec, and edit it to match the release version
 
 Normally, only the 'version' and 'description' tags have to be updated
 
-5) edit copperspice-gettingstarted\nuget\copperspice.x.x.x\build\native\copperspice.targets and change the major version if it is a major release (the DLL's have the version number in their name, ie CsCore1.7.lib)
+4) edit copperspice-gettingstarted\nuget\copperspice.x.x.x\build\native\copperspice.targets and change the major version if it is a major release (the DLL's have the version number in their name, ie CsCore1.7.lib)
 
 A find-replace "1.6" -> "1.7" is normally sufficient
 

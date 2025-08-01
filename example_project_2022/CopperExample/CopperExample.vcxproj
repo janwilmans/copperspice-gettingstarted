@@ -106,7 +106,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -140,12 +140,12 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="packages\copperspice.1.8.2\build\native\copperspice.targets" Condition="Exists('packages\copperspice.1.8.2\build\native\copperspice.targets')" />
+    <Import Project="packages\copperspice.2.0.0\build\native\copperspice.targets" Condition="Exists('packages\copperspice.2.0.0\build\native\copperspice.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('packages\copperspice.1.8.2\build\native\copperspice.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\copperspice.1.8.2\build\native\copperspice.targets'))" />
+    <Error Condition="!Exists('packages\copperspice.2.0.0\build\native\copperspice.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\copperspice.2.0.0\build\native\copperspice.targets'))" />
   </Target>
 </Project>
