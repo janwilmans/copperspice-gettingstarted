@@ -11,7 +11,7 @@ if (MSVC)
   string (REGEX REPLACE "/W3" "" CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}")
   string (REGEX REPLACE "/W3" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   string (REGEX REPLACE "/INCREMENTAL[:NO]*" "/INCREMENTAL:NO" CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG}")
- 
+
   set(PROJECT_WARNING_DEFAULTS
     /W4            # Baseline reasonable warnings
     /w14242        # 'identifier': conversion from 'type1' to 'type1', possible loss of data
@@ -35,12 +35,19 @@ if (MSVC)
     /w14905        # wide string literal cast to 'LPSTR'
     /w14906        # string literal cast to 'LPWSTR'
     /w14928        # illegal copy-initialization; more than one user-defined conversion has been implicitly applied
+    /we4715        # make 'not all control paths return a value' always an error
    )
    target_compile_options(define_project_warning_options INTERFACE "$<$<COMPILE_LANGUAGE:CXX>:${PROJECT_WARNING_DEFAULTS}>")
 
-  #  target_compile_options(define_project_warning_suppressions INTERFACE
-  #   /wd4244
-  #  )
+# investigate these flags:
+# "CMAKE_CXX_FLAGS": "/sdl /guard:cf /utf-8 /diagnostics:caret /w14165 /w44242 /w44254 /w44263 /w34265 /w34287 /w44296 /w44365 /w44388 /w44464
+#   /w14545 /w14546 /w14547 /w14549 /w14555 /w34619 /w34640 /w24826 /w14905 /w14906 /w14928 /w45038 /W4 /permissive- /volatile:iso /Zc:inline /Zc:preprocessor
+#   /Zc:enumTypes /Zc:lambda /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /EHsc",
+# "CMAKE_EXE_LINKER_FLAGS": "/machine:x64 /guard:cf",  # exploit mitigation technique
+# "CMAKE_SHARED_LINKER_FLAGS": "/machine:x64 /guard:cf"
+#  target_compile_options(define_project_warning_suppressions INTERFACE
+#   /wd4244  # possible loss of data
+#  )
 else()
   # Linux, Windows (MinGW)
   set(CMAKE_EXE_LINKER_FLAGS    "${CMAKE_EXE_LINKER_FLAGS}    -Wl,--no-undefined")
@@ -53,7 +60,7 @@ else()
     -Wpedantic
     -Wcast-align
     -Wshadow
-    -Wsign-conversion 
+    -Wsign-conversion
     -Wconversion
     -Wdouble-promotion
     -Wold-style-cast
@@ -71,4 +78,17 @@ else()
     $<$<COMPILE_LANGUAGE:CXX>:-Wnon-virtual-dtor>
     $<$<COMPILE_LANGUAGE:CXX>:-Woverloaded-virtual>
   )
+endif()
+
+if (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+    message("Add extra GCC only compilation options")
+    add_compile_options(
+      -Wduplicated-cond
+      -Wframe-larger-than=1000000
+      -Wlogical-op
+      -Wduplicated-branches
+      -Wformat-overflow=2
+      $<$<COMPILE_LANGUAGE:CXX>:-Wvolatile>
+    )
+
 endif()

@@ -6,7 +6,6 @@ x86/
 *.nupkg
 placeholder*
 out/
-nuget/copperspice/build/native/copperspice/debug
-nuget/copperspice/build/native/copperspice/release
-nuget/copperspice/build/native/copperspice/include
+nuget/copperspice/build/native
+.vscode
 

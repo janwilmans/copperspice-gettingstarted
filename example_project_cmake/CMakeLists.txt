@@ -1,25 +1,37 @@
-cmake_minimum_required(VERSION 3.16.0 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.31 FATAL_ERROR)
 
-project(example_project_cmake)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-if(NOT CMAKE_BUILD_TYPE)
-  message(FATAL_ERROR "No build type specified, ie. use -DCMAKE_BUILD_TYPE=<config> typical values are Debug, Release, RelWithDebInfo and MinSizeRel")
+project(
+  example_project_cmake
+  VERSION 1.0
+  DESCRIPTION "This ends up in package description"
+  HOMEPAGE_URL "https://the origin of the project"
+  LANGUAGES CXX C
+)
+
+# directory where the 'install' target will write its output
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "installation path" FORCE)
 endif()
 
 if (MSVC)
-  include(CMakeLists.msvc.zero.config.cmake)
+  include(cmake/CMakeLists.msvc.zero.config.cmake)
+
+  # use all available cores to build, this speed up the build a lot
+  add_compile_options(/MP)
+
+  # link statically against the MSVC runtime, this costs ~500k per binary, but prevents
+  # having to install a MSVC runtime library on the target
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
 
-if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "installation path" FORCE)
-endif() 
+enable_testing()
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(CopperSpice REQUIRED)
 
-find_package(CopperSpice 1.8.2 REQUIRED)
-
-include(CMakeLists.warnings.cmake)
+include(cmake/CMakeLists.warnings.cmake)
 
 if(BUILD_WITH_ASAN)
     add_compile_options(-fsanitize=address)
