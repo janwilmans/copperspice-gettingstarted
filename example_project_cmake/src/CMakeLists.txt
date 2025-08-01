@@ -18,7 +18,10 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-target_link_libraries(${PROJECT_NAME} PRIVATE project::warnings_options project::warning_suppressions
+target_link_libraries(${PROJECT_NAME} PRIVATE
+  project::warnings_options
+  project::warning_suppressions
+  project::project_compile_options
   CopperSpice::CsCore
   CopperSpice::CsGui
   cs_interface

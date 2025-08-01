@@ -2,9 +2,9 @@
 
 #include "extra.h"
 
-#include <cstdint> 
+#include <cstdint>
 
 std::uint32_t example(std::int64_t value2)
 {
-	return value2;
+    return value2;
 }

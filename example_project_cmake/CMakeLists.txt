@@ -57,6 +57,12 @@ endif()
 # CopperSpice libraries and plugins in its own directory first.
 set(CMAKE_INSTALL_RPATH "\$ORIGIN")
 
+target_compile_options(define_project_compile_options INTERFACE /utf-8)
+
+add_library(project::warnings_options ALIAS define_project_warning_options)
+add_library(project::warning_suppressions ALIAS define_project_warning_suppressions)
+add_library(project::project_compile_options ALIAS define_project_compile_options)
+
 add_subdirectory(src)
 
 if(${CMAKE_SIZEOF_VOID_P} EQUAL 4)

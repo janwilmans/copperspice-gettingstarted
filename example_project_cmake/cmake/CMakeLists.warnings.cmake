@@ -1,7 +1,5 @@
 add_library(define_project_warning_options INTERFACE)
-add_library(project::warnings_options ALIAS define_project_warning_options)
 add_library(define_project_warning_suppressions INTERFACE)
-add_library(project::warning_suppressions ALIAS define_project_warning_suppressions)
 
 if (MSVC)
   # replace /Zx with /Z7 for tooling compatibility (Incredibuild and stashed.io)
@@ -45,6 +43,7 @@ if (MSVC)
 #   /Zc:enumTypes /Zc:lambda /Zc:__cplusplus /Zc:externConstexpr /Zc:throwingNew /EHsc",
 # "CMAKE_EXE_LINKER_FLAGS": "/machine:x64 /guard:cf",  # exploit mitigation technique
 # "CMAKE_SHARED_LINKER_FLAGS": "/machine:x64 /guard:cf"
+
 #  target_compile_options(define_project_warning_suppressions INTERFACE
 #   /wd4244  # possible loss of data
 #  )
